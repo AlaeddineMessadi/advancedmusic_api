@@ -1,127 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ce93f7d3-fd1d-473d-9389-1950bb0b4eb8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.env.dist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/bin/console" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/bin/phpunit" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/codeception.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/composer.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/bundles.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/jwt/private.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/jwt/public.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/api_platform.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/dev/jms_serializer.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/dev/monolog.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/dev/routing.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/dev/swiftmailer.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/doctrine.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/doctrine_migrations.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/fos_rest.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/fos_user.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/framework.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/jms_serializer.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/lexik_jwt_authentication.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/nelmio_api_doc.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/nelmio_cors.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/prod/doctrine.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/prod/jms_serializer.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/prod/monolog.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/routing.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/security.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/swiftmailer.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/test/doctrine.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/test/framework.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/test/monolog.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/test/swiftmailer.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/translation.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/packages/twig.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/routes.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/routes/api_platform.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/routes/dev/twig.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/routes/fos_user.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/routes/nelmio_api_doc.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/services.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/services_test.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/config/validator/validation.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/phpunit.xml.dist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/email/default/KXDpPRMA4V.message" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Controller/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Controller/FileController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Controller/ProfileController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Controller/Security/SecurityAuth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Controller/Security/SecurityProfile.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Controller/Security/SecurityRegister.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Controller/Security/SecurityResetting.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Controller/SecurityAuthController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Controller/SecurityProfileController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Controller/SecurityRegisterController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Controller/SecurityResettingController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Controller/SecurityRoleController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/DataFixtures/ProfileFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/DataFixtures/UserFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Doctrine/CurrentUserExtension.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Entity/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Entity/Files.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Entity/InvalidToken.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Entity/Post.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Entity/Profile.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Entity/Traits/CreatedAtTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Entity/Traits/IdTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Entity/Traits/TimestampTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Entity/Traits/UpdatedAtTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Entity/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Kernel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Listener/ExceptionListener.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Mail/MailSender.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Mail/PreparedEmail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Mail/TwigMailer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Migrations/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Repository/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Repository/FilesRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Repository/InvalidTokenRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Repository/PostRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Repository/ProfileRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Repository/UserRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Security/TokenAuthenticator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Security/TokenGenerator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Service/Profile.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Service/RoleService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Utils/HttpCode.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Utils/Response.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Utils/UploadLimits.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Utils/Validator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/symfony.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/base.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/emails/base.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/emails/profile_confirm_update.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/emails/register_confirm.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/emails/reset_password_confirm.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tests/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tests/_data/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tests/_data/MyDb.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tests/_data/dump.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tests/_output/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tests/_support/Helper/Unit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tests/_support/UnitTester.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tests/_support/_generated/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tests/unit.suite.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tests/unit/Utils/HttpCodeTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tests/unit/Utils/ResponseTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tests/unit/Utils/ValidatorTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/translations/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-    </list>
+    <list default="true" id="ce93f7d3-fd1d-473d-9389-1950bb0b4eb8" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,8 +54,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/Controller/FileController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="106" column="40" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="40" />
+            <state relative-caret-position="345">
+              <caret line="101" column="37" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -229,42 +109,6 @@
               <item name="api_server" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="api_server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api_server" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="api_server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api_server" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="api_server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api_server" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="api_server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api_server" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="api_server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api_server" type="462c0819:PsiDirectoryNode" />
-              <item name="nginx" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="api_server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api_server" type="462c0819:PsiDirectoryNode" />
-              <item name="php7-fpm" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -310,16 +154,15 @@
       <updated>1550654711830</updated>
       <workItem from="1550654712916" duration="970000" />
       <workItem from="1550660294761" duration="29000" />
-      <workItem from="1550660334653" duration="1147000" />
+      <workItem from="1550660334653" duration="1514000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2146000" />
+    <option name="totallyTimeSpent" value="2513000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="5120" y="-2" width="2560" height="1442" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2140016" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -392,8 +235,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/Controller/FileController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="106" column="40" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="40" />
+        <state relative-caret-position="345">
+          <caret line="101" column="37" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="37" />
         </state>
       </provider>
     </entry>

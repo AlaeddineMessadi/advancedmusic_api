@@ -1,48 +1,15 @@
 {
-    "name": "svp1989/symfony-api-skeleton",
-    "description": "Symfony api skeleton based on symfony-flex, api-platform, JWT etc.",
-    "authors": [
-        {
-            "name": "Skvortsov Vitaly",
-            "email": "skvorvit@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
     "type": "project",
-    "license": "MIT",
+    "license": "proprietary",
     "require": {
         "php": "^7.1.3",
+        "ext-ctype": "*",
         "ext-iconv": "*",
-        "api-platform/api-pack": "^1.0",
-        "doctrine/annotations": "^1.6",
-        "doctrine/doctrine-migrations-bundle": "^1.3",
-        "friendsofsymfony/rest-bundle": "^2.3",
-        "friendsofsymfony/user-bundle": "dev-master",
-        "jms/serializer-bundle": "^2.3",
-        "lexik/jwt-authentication-bundle": "^2.4",
-        "nelmio/api-doc-bundle": "^3.1",
-        "nelmio/cors-bundle": "^1.5",
-        "sensio/framework-extra-bundle": "^5.1",
-        "symfony/asset": "^4.0",
-        "symfony/console": "^4.0",
-        "symfony/flex": "^1.0",
-        "symfony/framework-bundle": "^4.0",
-        "symfony/lts": "^4@dev",
-        "symfony/maker-bundle": "^1.0",
-        "symfony/phpunit-bridge": "^4.0",
-        "symfony/security-bundle": "^4.0",
-        "symfony/security-core": "^4.0",
-        "symfony/swiftmailer-bundle": "^3.1",
-        "symfony/templating": "^4.0",
-        "symfony/validator": "^4.0",
-        "symfony/yaml": "^4.0"
-    },
-    "require-dev": {
-        "codeception/codeception": "^2.4",
-        "doctrine/doctrine-fixtures-bundle": "^3.0",
-        "symfony/dotenv": "^4.0",
-        "symfony/monolog-bundle": "^3.1",
-        "symfony/web-server-bundle": "^4.0"
+        "symfony/console": "4.2.*",
+        "symfony/dotenv": "4.2.*",
+        "symfony/flex": "^1.1",
+        "symfony/framework-bundle": "4.2.*",
+        "symfony/yaml": "4.2.*"
     },
     "config": {
         "preferred-install": {
@@ -61,6 +28,8 @@
         }
     },
     "replace": {
+        "paragonie/random_compat": "2.*",
+        "symfony/polyfill-ctype": "*",
         "symfony/polyfill-iconv": "*",
         "symfony/polyfill-php71": "*",
         "symfony/polyfill-php70": "*",
@@ -69,7 +38,7 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"
@@ -83,9 +52,8 @@
     },
     "extra": {
         "symfony": {
-            "id": "01C5RNM4R6FFEM98R36JZ40GFW",
-            "allow-contrib": false
-        },
-        "symfony.id": "01C5BHY9QNVBT75XH8H6QWPPFD"
+            "allow-contrib": false,
+            "require": "4.2.*"
+        }
     }
 }
