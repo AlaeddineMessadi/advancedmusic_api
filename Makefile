@@ -23,15 +23,15 @@ build:
 	@docker-compose build
 
 install:
-	@docker-compose exec -T ovm-tester /bin/sh -c 'chown -R php:php /home/php/.composer/cache'
-	@docker-compose exec --user="php" ovm-tester composer install
-	@docker-compose exec -T --user="php" ovm-tester bin/warm_up
+#	@docker-compose exec api_server_php /bin/sh -c 'chown -R php:php /home/php/.composer/cache'
+	@docker exec -it --user="www-data" api_server_php sh -c "composer install"
+#	@docker-compose exec -T --user="php" ovm-tester bin/warm_up
 
 enter:
-	@docker-compose exec --user="php" ovm-tester /bin/sh
+	@docker exec -it --user="www-data" api_server_php sh
 
 enter-nginx:
-	@docker-compose exec ovm-tester-nginx /bin/sh
+	@docker-compose exec ovm-tester-nginx sh
 
 destroy:
 	@docker-compose down --rmi local
