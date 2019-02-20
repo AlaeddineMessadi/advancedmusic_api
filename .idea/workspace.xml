@@ -2,20 +2,125 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce93f7d3-fd1d-473d-9389-1950bb0b4eb8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/docker-symfony/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-symfony/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-symfony/doc/custom.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-symfony/doc/schema.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-symfony/doc/schema.pptx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-symfony/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-symfony/elk/logstash/logstash.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-symfony/elk/logstash/patterns/default.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-symfony/elk/logstash/patterns/nginx.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-symfony/elk/logstash/patterns/symfony.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-symfony/nginx/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-symfony/nginx/nginx.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-symfony/nginx/symfony.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-symfony/php7-fpm/Dockerfile" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/.env.dist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/bin/console" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/bin/phpunit" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/codeception.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/composer.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/bundles.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/jwt/private.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/jwt/public.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/api_platform.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/dev/jms_serializer.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/dev/monolog.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/dev/routing.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/dev/swiftmailer.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/doctrine.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/doctrine_migrations.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/fos_rest.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/fos_user.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/framework.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/jms_serializer.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/lexik_jwt_authentication.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/nelmio_api_doc.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/nelmio_cors.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/prod/doctrine.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/prod/jms_serializer.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/prod/monolog.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/routing.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/security.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/swiftmailer.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/test/doctrine.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/test/framework.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/test/monolog.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/test/swiftmailer.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/translation.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/packages/twig.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/routes.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/routes/api_platform.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/routes/dev/twig.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/routes/fos_user.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/routes/nelmio_api_doc.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/services.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/services_test.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/validator/validation.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/phpunit.xml.dist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/email/default/KXDpPRMA4V.message" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Controller/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Controller/FileController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Controller/ProfileController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Controller/Security/SecurityAuth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Controller/Security/SecurityProfile.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Controller/Security/SecurityRegister.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Controller/Security/SecurityResetting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Controller/SecurityAuthController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Controller/SecurityProfileController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Controller/SecurityRegisterController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Controller/SecurityResettingController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Controller/SecurityRoleController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/DataFixtures/ProfileFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/DataFixtures/UserFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Doctrine/CurrentUserExtension.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Entity/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Entity/Files.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Entity/InvalidToken.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Entity/Post.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Entity/Profile.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Entity/Traits/CreatedAtTrait.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Entity/Traits/IdTrait.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Entity/Traits/TimestampTrait.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Entity/Traits/UpdatedAtTrait.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Entity/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Kernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Listener/ExceptionListener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Mail/MailSender.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Mail/PreparedEmail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Mail/TwigMailer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Migrations/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Repository/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Repository/FilesRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Repository/InvalidTokenRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Repository/PostRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Repository/ProfileRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Repository/UserRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Security/TokenAuthenticator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Security/TokenGenerator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Service/Profile.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Service/RoleService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Utils/HttpCode.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Utils/Response.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Utils/UploadLimits.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Utils/Validator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/symfony.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/base.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/emails/base.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/emails/profile_confirm_update.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/emails/register_confirm.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/emails/reset_password_confirm.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tests/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tests/_data/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tests/_data/MyDb.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tests/_data/dump.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tests/_output/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tests/_support/Helper/Unit.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tests/_support/UnitTester.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tests/_support/_generated/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tests/unit.suite.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tests/unit/Utils/HttpCodeTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tests/unit/Utils/ResponseTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tests/unit/Utils/ValidatorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/translations/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,12 +128,85 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Makefile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php7-fpm/Dockerfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="36" column="42" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/routes/api_platform.yaml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/Controller/FileController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="106" column="40" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/Makefile" />
+        <option value="$PROJECT_DIR$/.env" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="5939" />
-    <option name="y" value="293" />
+    <option name="x" value="5994" />
+    <option name="y" value="152" />
     <option name="width" value="1667" />
     <option name="height" value="1276" />
   </component>
@@ -38,6 +216,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -45,11 +224,51 @@
               <item name="api_server" type="b2602c69:ProjectViewProjectNode" />
               <item name="api_server" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="api_server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api_server" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="api_server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api_server" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="api_server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api_server" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="api_server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api_server" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="api_server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api_server" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="api_server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api_server" type="462c0819:PsiDirectoryNode" />
+              <item name="nginx" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="api_server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api_server" type="462c0819:PsiDirectoryNode" />
+              <item name="php7-fpm" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -57,6 +276,15 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ovm-tester" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -81,23 +309,21 @@
       <option name="presentableId" value="Default" />
       <updated>1550654711830</updated>
       <workItem from="1550654712916" duration="970000" />
+      <workItem from="1550660294761" duration="29000" />
+      <workItem from="1550660334653" duration="1147000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="970000" />
+    <option name="totallyTimeSpent" value="2146000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="5120" y="-2" width="2560" height="1442" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24980111" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2140016" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32977912" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -105,13 +331,71 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49960223" visible="true" weight="0.4059406" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5003978" side_tool="true" weight="0.28712872" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/docker-symfony" />
+      <path value="$PROJECT_DIR$/app/symfony-api-skeleton" />
+    </ignored-roots>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php7-fpm/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="42" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routes/api_platform.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/Controller/FileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="106" column="40" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

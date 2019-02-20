@@ -1,0 +1,18 @@
+fos_rest:
+
+    param_fetcher_listener:  true
+    allowed_methods_listener:  true
+    routing_loader: true
+    body_listener: true
+
+    view:
+        view_response_listener: true
+        mime_types:
+            json: ['application/json', 'application/json;version=1.0', 'application/json;version=1.1']
+
+        formats:
+            json: true
+
+    format_listener:
+        rules:
+            - { path: ^/api, prefer_extension: true, fallback_format: json, priorities: [ json ] }
