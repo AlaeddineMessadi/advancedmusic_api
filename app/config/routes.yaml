@@ -7,7 +7,7 @@ api_entrypoint:
     methods: [GET]
 
 api_doc:
-    path: /api
+    path: /
     methods: [GET]
 
 api_jsonld_context:

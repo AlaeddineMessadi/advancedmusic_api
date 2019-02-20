@@ -5,6 +5,7 @@ ARG TIMEZONE
 MAINTAINER Alaeddine Messadi <alaeddine.messadi@gmail.com>
 
 RUN apk add --update --no-cache \
+    shadow\
     zlib-dev\
     openssl \
     git \
@@ -45,5 +46,7 @@ RUN docker-php-ext-install pdo pdo_mysql
 RUN echo 'alias sf="php app/console"' >> ~/.bashrc \
 && echo 'alias sf3="php bin/console"' >> ~/.bashrc
 
+RUN usermod -u 1000 www-data
 USER www-data
+
 WORKDIR /var/www/html
