@@ -46,4 +46,4 @@ RUN echo 'alias sf="php app/console"' >> ~/.bashrc \
 && echo 'alias sf3="php bin/console"' >> ~/.bashrc
 
 USER www-data
-WORKDIR /var/www/symfony
+WORKDIR /var/www/html

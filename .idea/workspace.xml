@@ -2,139 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce93f7d3-fd1d-473d-9389-1950bb0b4eb8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docker/php7-fpm/php.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/php7-fpm/www.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/api_server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/api_server.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/composer.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/packages/routing.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/routing.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/packages/test/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/test/framework.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/symfony.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app2/config/bootstrap.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app2/config/packages/cache.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app2/config/packages/dev/routing.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app2/config/packages/routing.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app2/config/packages/test/framework.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app2/config/packages/test/routing.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app2/src/Controller/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/.env.dist" beforeDir="false" afterPath="$PROJECT_DIR$/app/.env.dist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/app/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/app/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/bin/console" beforeDir="false" afterPath="$PROJECT_DIR$/app/bin/console" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/bin/phpunit" beforeDir="false" afterPath="$PROJECT_DIR$/app/bin/phpunit" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/codeception.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/codeception.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/composer.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/jwt/private.pem" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/jwt/private.pem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/jwt/public.pem" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/jwt/public.pem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/api_platform.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/api_platform.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/dev/jms_serializer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/dev/jms_serializer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/dev/monolog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/dev/monolog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/dev/swiftmailer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/dev/swiftmailer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/doctrine_migrations.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/doctrine_migrations.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/fos_rest.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/fos_rest.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/fos_user.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/fos_user.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/framework.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/jms_serializer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/jms_serializer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/lexik_jwt_authentication.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/lexik_jwt_authentication.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/nelmio_api_doc.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/nelmio_api_doc.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/nelmio_cors.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/nelmio_cors.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/prod/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/prod/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/prod/jms_serializer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/prod/jms_serializer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/prod/monolog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/prod/monolog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/swiftmailer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/swiftmailer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/test/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/test/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/test/monolog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/test/monolog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/test/swiftmailer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/test/swiftmailer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/translation.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/translation.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/packages/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/routes.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/routes/api_platform.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routes/api_platform.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/routes/dev/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routes/dev/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/routes/fos_user.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routes/fos_user.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/routes/nelmio_api_doc.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routes/nelmio_api_doc.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/services_test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/services_test.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/config/validator/validation.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/validator/validation.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/app/phpunit.xml.dist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/public/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/public/email/default/KXDpPRMA4V.message" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/email/default/KXDpPRMA4V.message" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Controller/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Entity/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Controller/FileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Controller/FileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Controller/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Controller/Security/SecurityAuth.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Controller/Security/SecurityAuth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Controller/Security/SecurityProfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Controller/Security/SecurityProfile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Controller/Security/SecurityRegister.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Controller/Security/SecurityRegister.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Controller/Security/SecurityResetting.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Controller/Security/SecurityResetting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Controller/SecurityAuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Controller/SecurityAuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Controller/SecurityProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Controller/SecurityProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Controller/SecurityRegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Controller/SecurityRegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Controller/SecurityResettingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Controller/SecurityResettingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Controller/SecurityRoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Controller/SecurityRoleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/DataFixtures/ProfileFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/DataFixtures/ProfileFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/DataFixtures/UserFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/DataFixtures/UserFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Doctrine/CurrentUserExtension.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Doctrine/CurrentUserExtension.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Entity/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Migrations/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Entity/Files.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Entity/Files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Entity/InvalidToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Entity/InvalidToken.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Entity/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Entity/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Entity/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Entity/Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Entity/Traits/CreatedAtTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Entity/Traits/CreatedAtTrait.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Entity/Traits/IdTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Entity/Traits/IdTrait.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Entity/Traits/TimestampTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Entity/Traits/TimestampTrait.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Entity/Traits/UpdatedAtTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Entity/Traits/UpdatedAtTrait.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Listener/ExceptionListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Listener/ExceptionListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Mail/MailSender.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Mail/MailSender.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Mail/PreparedEmail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Mail/PreparedEmail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Mail/TwigMailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Mail/TwigMailer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Migrations/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Repository/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Repository/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Repository/FilesRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Repository/FilesRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Repository/InvalidTokenRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Repository/InvalidTokenRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Repository/PostRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Repository/PostRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Repository/ProfileRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Repository/ProfileRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Security/TokenAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Security/TokenAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Security/TokenGenerator.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Security/TokenGenerator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Service/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Service/Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Service/RoleService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Service/RoleService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Utils/HttpCode.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Utils/HttpCode.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Utils/Response.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Utils/Response.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Utils/UploadLimits.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Utils/UploadLimits.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/src/Utils/Validator.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Utils/Validator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/symfony.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/templates/emails/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/emails/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/templates/emails/profile_confirm_update.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/emails/profile_confirm_update.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/templates/emails/register_confirm.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/emails/register_confirm.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/templates/emails/reset_password_confirm.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/emails/reset_password_confirm.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/tests/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/translations/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/tests/_data/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/_data/.gitkeep" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/tests/_data/MyDb.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/_data/MyDb.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/tests/_data/dump.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/_data/dump.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/tests/_output/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/_output/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/tests/_support/Helper/Unit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/_support/Helper/Unit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/tests/_support/UnitTester.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/_support/UnitTester.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/tests/_support/_generated/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/_support/_generated/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/tests/unit.suite.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/unit.suite.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/tests/unit/Utils/HttpCodeTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/unit/Utils/HttpCodeTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/tests/unit/Utils/ResponseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/unit/Utils/ResponseTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3/tests/unit/Utils/ValidatorTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/unit/Utils/ValidatorTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/symfony.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/symfony.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php7-fpm/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php7-fpm/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/nginx/symfony.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/symfony.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/php7-fpm/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php7-fpm/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/php7-fpm/www.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php7-fpm/www.conf" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -148,19 +20,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
+        <entry file="file://$PROJECT_DIR$/docker/nginx/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+            <state relative-caret-position="150">
+              <caret line="10" column="84" lean-forward="true" selection-start-line="10" selection-start-column="84" selection-end-line="10" selection-end-column="84" />
             </state>
           </provider>
         </entry>
@@ -174,38 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docker/nginx/Dockerfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Makefile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="56" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docker/nginx/symfony.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/composer.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="45" column="15" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
+            <state relative-caret-position="30">
+              <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -214,7 +50,16 @@
         <entry file="file://$PROJECT_DIR$/docker/php7-fpm/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="705">
-              <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+              <caret line="47" column="8" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -222,17 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docker/php7-fpm/www.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docker/php7-fpm/php.ini">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="60">
+              <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -256,12 +92,16 @@
       <find>app/log</find>
       <find>.env</find>
       <find>PUBLIC_DIR</find>
-      <find>template</find>
       <find>user</find>
+      <find>template</find>
+      <find>upstream.conf</find>
+      <find>9000</find>
+      <find>sym</find>
+      <find>www</find>
     </findStrings>
     <dirStrings>
-      <dir>$PROJECT_DIR$/docker</dir>
       <dir>$PROJECT_DIR$</dir>
+      <dir>$PROJECT_DIR$/docker</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -271,16 +111,16 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/docker-compose.yml" />
-        <option value="$PROJECT_DIR$/docker/nginx/symfony.conf" />
         <option value="$PROJECT_DIR$/docker/php7-fpm/php.ini" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/composer.json" />
-        <option value="$PROJECT_DIR$/docker/nginx/Dockerfile" />
         <option value="$PROJECT_DIR$/docker/nginx/nginx.conf" />
-        <option value="$PROJECT_DIR$/docker/php7-fpm/Dockerfile" />
-        <option value="$PROJECT_DIR$/docker/php7-fpm/www.conf" />
         <option value="$PROJECT_DIR$/Makefile" />
+        <option value="$PROJECT_DIR$/docker/php7-fpm/Dockerfile" />
+        <option value="$PROJECT_DIR$/docker/nginx/Dockerfile" />
+        <option value="$PROJECT_DIR$/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/docker/php7-fpm/www.conf" />
+        <option value="$PROJECT_DIR$/docker/nginx/symfony.conf" />
       </list>
     </option>
   </component>
@@ -337,6 +177,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ovm-tester" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
@@ -374,12 +215,12 @@
       <workItem from="1550654712916" duration="970000" />
       <workItem from="1550660294761" duration="29000" />
       <workItem from="1550660334653" duration="5047000" />
-      <workItem from="1550671578361" duration="5895000" />
+      <workItem from="1550671578361" duration="8366000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11941000" />
+    <option name="totallyTimeSpent" value="14412000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2560" y="-2" width="2560" height="1442" extended-state="6" />
@@ -482,13 +323,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -496,52 +330,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="101">
           <caret line="45" column="15" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/nginx/nginx.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/nginx/symfony.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/nginx/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/php7-fpm/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/php7-fpm/www.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -555,7 +347,56 @@
     <entry file="file://$PROJECT_DIR$/Makefile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
-          <caret line="26" column="56" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
+          <caret line="26" column="78" lean-forward="true" selection-start-line="26" selection-start-column="78" selection-end-line="26" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="16" lean-forward="true" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/nginx/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="84" lean-forward="true" selection-start-line="10" selection-start-column="84" selection-end-line="10" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/nginx/nginx.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/php7-fpm/www.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/php7-fpm/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="47" column="8" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/nginx/symfony.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
         </state>
       </provider>
     </entry>
