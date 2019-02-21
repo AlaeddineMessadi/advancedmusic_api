@@ -5,6 +5,8 @@
       <sourceFolder url="file://$MODULE_DIR$/app/tests" isTestSource="true" packagePrefix="App\Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/app/src" isTestSource="false" packagePrefix="App\" />
       <excludeFolder url="file://$MODULE_DIR$/.data" />
+      <excludeFolder url="file://$MODULE_DIR$/app/var" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/api-platform/api-pack" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/api-platform/core" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/behat/gherkin" />
