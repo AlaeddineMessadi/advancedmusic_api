@@ -5,7 +5,8 @@ services:
         container_name: api_server_db
         image: mysql:5.7
         volumes:
-            - "./.data/db:/var/lib/mysql"
+            - ${MYSQL_DATA_DIR}:/var/lib/mysql
+            - ${MYSQL_LOG_DIR}:/var/log/mysql
         environment:
             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
             MYSQL_DATABASE: ${MYSQL_DATABASE}
