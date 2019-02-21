@@ -17,14 +17,20 @@ run:
 	@if [ ! -f "./.env" ]; then\
         cp .env.dist .env; \
     fi
+	@if [ ! -f "./app/.env" ]; then\
+        cp ./app/.env.dist ./app/.env; \
+    fi
 	@docker-compose up -d
 
 build:
 	@docker-compose build
 
+
 install:
 #	@docker-compose exec api_server_php /bin/sh -c 'chown -R php:php /home/php/.composer/cache'
 	@docker exec -it --user="www-data" api_server_php sh -c "composer install"
+	@docker exec -it --user="www-data" api_server_php sh -c "bin/console assets:install"
+	@docker exec -it --user="www-data" api_server_php sh -c "bin/console doctrine:migration:migrate"
 #	@docker-compose exec -T --user="php" ovm-tester bin/warm_up
 
 enter:
