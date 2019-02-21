@@ -40,7 +40,7 @@ services:
         volumes_from:
             - php
         volumes:
-            - ./logs/nginx/:/var/log/nginx
+            - .${NGINX_LOGS_DIR}:/var/log/nginx
         ports:
             - 80:80
 
@@ -52,7 +52,7 @@ services:
             RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
             RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
         volumes:
-            - ./.data/rabbitmq/:/var/lib/rabbitmq
+            - ${RABBITMQ_DATA_DIR}:/var/lib/rabbitmq
         ports:
             - "5672:5672"
             - "15672:15672"
@@ -62,9 +62,9 @@ services:
         ports:
             - 81:80
         volumes:
-            - ./elk/logstash:/etc/logstash
-            - ./elk/logstash/patterns:/opt/logstash/patterns
-            - ./.data/elasticsearch:/var/lib/elasticsearch
+            - ${ELK_LOGS_DIR}:/etc/logstash
+            - ${ELK_LOGS_PATTERNS_DIR}:/opt/logstash/patterns
+            - ${ELASTICSEARCH_DATA_DIR}:/var/lib/elasticsearch
         volumes_from:
             - php
             - nginx
