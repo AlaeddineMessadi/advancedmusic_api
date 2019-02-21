@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class SecurityAuthController
- * Класс авторизации пользователя
+ *
  * @package App\Controller
  */
 class SecurityAuthController extends Controller implements SecurityAuth

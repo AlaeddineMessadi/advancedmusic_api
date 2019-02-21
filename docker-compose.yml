@@ -3,7 +3,7 @@ version: '2'
 services:
     db:
         container_name: api_server_db
-        image: mysql
+        image: mysql:5.7
         volumes:
             - "./.data/db:/var/lib/mysql"
         environment:
@@ -31,6 +31,7 @@ services:
 #            - ./logs/symfony:/var/www/html/var/logs
         links:
             - redis
+            - db
 
     nginx:
         container_name: api_server_nginx

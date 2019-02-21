@@ -1,3 +1,4 @@
+# api/config/packages/api_platform.yaml
 api_platform:
     enable_fos_user: true
     swagger:
@@ -7,9 +8,9 @@ api_platform:
                 type: header
     mapping:
         paths: ['%kernel.project_dir%/src/Entity']
-#    formats:
-#        json:
-#            mime_types: ['application/json']
+    #    formats:
+    #        json:
+    #            mime_types: ['application/json']
     formats:
         json:
             mime_types: ['application/json']
@@ -23,4 +24,3 @@ api_platform:
             items_per_page_parameter_name: itemsPerPage
 
     enable_nelmio_api_doc: true
-# api/config/packages/api_platform.yaml

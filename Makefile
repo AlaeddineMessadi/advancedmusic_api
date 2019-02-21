@@ -36,6 +36,9 @@ install:
 enter:
 	@docker exec -it --user="www-data" api_server_php sh
 
+db:
+	@docker exec -it --user="www-data" api_server_php sh -c "bin/console doctrine:schema:create"
+
 enter-nginx:
 	@docker-compose exec api_server_nginx sh
 
