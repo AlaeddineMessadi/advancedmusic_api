@@ -6,7 +6,7 @@ services:
         image: mysql:5.7
         volumes:
             - ${MYSQL_DATA_DIR}:/var/lib/mysql
-            - ${MYSQL_LOG_DIR}:/var/log/mysql
+            - ${MYSQL_LOGS_DIR}:/var/log/mysql
         environment:
             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
             MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -33,6 +33,7 @@ services:
         links:
             - redis
             - db
+
 
     nginx:
         container_name: api_server_nginx
