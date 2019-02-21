@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\IdTrait;
+use App\Entity\Traits\TimestampTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -10,12 +12,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Address
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    use IdTrait;
+    use TimestampTrait;
 
     /**
      * @var $street string street

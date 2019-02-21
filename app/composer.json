@@ -1,10 +1,10 @@
 {
-    "name": "svp1989/symfony-api-skeleton",
-    "description": "Symfony api skeleton based on symfony-flex, api-platform, JWT etc.",
+    "name": "advanced-music",
+    "description": "Advanced Music api based on symfony-flex, api-platform, JWT",
     "authors": [
         {
-            "name": "Skvortsov Vitaly",
-            "email": "skvorvit@gmail.com"
+            "name": "Alaeddine Messadi",
+            "email": "alaeddine.messadi@icloud.com"
         }
     ],
     "minimum-stability": "dev",

@@ -3,6 +3,7 @@
 ## Get started
 ```
 $ make build    # for docker containers build
+# note: the first build will take time on installing gcc and g++
 $ make run      # run the containers
 ```
 

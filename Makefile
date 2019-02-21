@@ -31,13 +31,13 @@ install:
 	@docker exec -it --user="www-data" api_server_php sh -c "composer install"
 	@docker exec -it --user="www-data" api_server_php sh -c "bin/console assets:install"
 	@docker exec -it --user="www-data" api_server_php sh -c "bin/console doctrine:migration:migrate"
-#	@docker-compose exec -T --user="php" ovm-tester bin/warm_up
+#	@docker-compose exec -T --user="php" api_server_php bin/warm_up
 
 enter:
 	@docker exec -it --user="www-data" api_server_php sh
 
 enter-nginx:
-	@docker-compose exec ovm-tester-nginx sh
+	@docker-compose exec api_server_nginx sh
 
 destroy:
 	@docker-compose down --rmi local
