@@ -51,7 +51,7 @@ services:
         volumes:
             - .${NGINX_LOGS_DIR}:/var/log/nginx
         ports:
-            - 80:80
+            - "80:80"
 
     rabbit:
         container_name: api_server_rabbit
