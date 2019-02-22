@@ -29,7 +29,6 @@ services:
                 TIMEZONE: ${TIMEZONE}
         volumes:
             - ${SYMFONY_APP_PATH}:/var/www/html
-#            - ./logs/symfony:/var/www/html/var/logs
         links:
             - redis
         depends_on:

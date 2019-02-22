@@ -3,7 +3,7 @@ monolog:
     handlers:
         main:
             type: stream
-            path: "%kernel.logs_dir%/%kernel.environment%.log"
+            path: "%env(resolve:LOGS_DIR)%/%kernel.environment%.log"
             level: debug
             channels: ["!event"]
         # uncomment to get logging in your browser
@@ -11,9 +11,9 @@ monolog:
         #firephp:
         #    type: firephp
         #    level: info
-        #chromephp:
-        #    type: chromephp
-        #    level: info
+#        chromephp:
+#            type: chromephp
+#            level: info
         console:
             type:   console
             process_psr_3_messages: false
