@@ -4,6 +4,9 @@ use Symfony\Component\Debug\Debug;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
 
+//echo (extension_loaded('xdebug') ? '' : 'non '), 'exists';
+//phpinfo();
+
 require __DIR__.'/../vendor/autoload.php';
 
 // The check is to ensure we don't use .env in production

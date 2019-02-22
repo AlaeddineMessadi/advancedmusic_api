@@ -32,8 +32,15 @@ services:
 #            - ./logs/symfony:/var/www/html/var/logs
         links:
             - redis
+        depends_on:
             - db
-
+        environment:
+            PHP_IDE_CONFIG: ${PHP_IDE_CONFIG}
+            XDEBUG: ${XDEBUG}
+            XDEBUG_CONFIG: ${XDEBUG_CONFIG}
+            SYMFONY_ENV: ${SYMFONY_ENV}
+            SYMFONY_DEBUG: ${SYMFONY_DEBUG}
+            SYMFONY_LOG: ${SYMFONY_LOG}
 
     nginx:
         container_name: api_server_nginx

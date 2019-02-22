@@ -12,3 +12,10 @@ $ make run      # run the containers
 $ make enter    # ssh to the app container
 $ make install  # to install dependencies
 ```
+
+
+### XDebug
+```
+# run this 
+$ sudo ip addr add 10.0.2.2/24 dev lo label lo:1
+```
