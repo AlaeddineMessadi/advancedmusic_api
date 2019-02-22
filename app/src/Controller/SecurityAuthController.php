@@ -65,6 +65,7 @@ class SecurityAuthController extends Controller implements SecurityAuth
      * @return JsonResponse
      */
     public function postLoginAction(Request $request): JsonResponse {
+        return  new JsonResponse(array('success' => 'ok'));
     }
 
     /**

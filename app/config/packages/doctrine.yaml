@@ -9,11 +9,10 @@ doctrine:
     dbal:
         # configure these for your database server
         driver: 'pdo_mysql'
-        server_version: '5.7'
         charset: UTF8
 #        With Symfony 3.3, remove the `resolve:` prefix
-#        url: '%env(resolve:DATABASE_URL)%'
-        url: 'mysql://root:root@127.0.0.1:3306/labellead'
+        url: '%env(resolve:DATABASE_URL)%'
+#        url: 'mysql://root:root@db:3306/labellead'
 
 #        default_connection: default
 #        connections:
