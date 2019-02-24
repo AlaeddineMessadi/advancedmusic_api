@@ -1,5 +1,5 @@
 {
-    "name": "advanced-music",
+    "name": "advanced-music/api_server",
     "description": "Advanced Music api based on symfony-flex, api-platform, JWT",
     "authors": [
         {
@@ -41,7 +41,8 @@
         "doctrine/doctrine-fixtures-bundle": "^3.0",
         "symfony/dotenv": "^4.0",
         "symfony/monolog-bundle": "^3.1",
-        "symfony/web-server-bundle": "^4.0"
+        "symfony/web-server-bundle": "^4.0",
+        "symfony/debug-pack": "dev-master"
     },
     "config": {
         "preferred-install": {

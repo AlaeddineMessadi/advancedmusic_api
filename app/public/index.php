@@ -3,6 +3,11 @@ use App\Kernel;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
+use \Symfony\Component\Debug\ErrorHandler;
+use Symfony\Component\Debug\ExceptionHandler;
+use Symfony\Component\Debug\DebugClassLoader;
+
+
 
 require __DIR__.'/../vendor/autoload.php';
 
@@ -21,6 +26,10 @@ if ($debug) {
     umask(0000);
 
     Debug::enable();
+    ErrorHandler::register();
+    ExceptionHandler::register();
+    DebugClassLoader::enable();
+
 }
 
 if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? false) {

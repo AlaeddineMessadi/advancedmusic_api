@@ -36,6 +36,9 @@ install:
 enter:
 	@docker exec -it --user="www-data" api_server_php sh
 
+logs:
+	@docker-compose logs -f
+
 db:
 	@docker exec -it --user="www-data" api_server_php sh -c "bin/console doctrine:schema:create"
 

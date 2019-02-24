@@ -71,6 +71,13 @@ class Profile
     private $birthday;
 
     /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Address", inversedBy="profile")
+     * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
+     */
+    private $address;
+
+
+    /**
      * @return User|null
      */
     public function getUser():? User
@@ -214,4 +221,25 @@ class Profile
     {
         return $this->birthday;
     }
+
+    /**
+     * @return Address
+     */
+    public function getAddress(): Address
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param $address Address
+     * @return Profile
+     */
+    public function setAddress(Address $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+
 }
