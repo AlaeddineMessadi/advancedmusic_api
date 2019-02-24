@@ -7,7 +7,8 @@ use \Symfony\Component\Debug\ErrorHandler;
 use Symfony\Component\Debug\ExceptionHandler;
 use Symfony\Component\Debug\DebugClassLoader;
 
-
+//echo (extension_loaded('xdebug') ? '' : 'non '), 'exists';
+//phpinfo();
 
 require __DIR__.'/../vendor/autoload.php';
 

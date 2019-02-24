@@ -33,7 +33,10 @@ services:
         links:
             - redis
             - db
-
+        environment:
+#            PHP_IDE_CONFIG: ${PHP_IDE_CONFIG}
+#            XDEBUG: ${XDEBUG}
+            XDEBUG_CONFIG: ${XDEBUG_CONFIG}
 
     nginx:
         container_name: api_server_nginx
