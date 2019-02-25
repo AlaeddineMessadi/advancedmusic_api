@@ -1,71 +1,35 @@
-# symfony-api-skeleton
- JSON REST API simple skeleton based on symfony-flex, JWT, api-platform, fosuserbundle etc.
+# Symfony4APIBoilerplateJWTBook
+[![Build Status](https://travis-ci.org/Tony133/Symfony4APIBoilerplateJWTBook.svg?branch=master)](https://travis-ci.org/Tony133/Symfony4APIBoilerplateJWTBook)
 
-## Installation
+Simple Example Api Rest Book with Symfony 4.2 and Json Web Token
 
-### 1. Clone repository
-Create project :
-
-```bash
-composer create-project svp1989/symfony-api-skeleton:@dev
-```
-Or clone repository from GitHub:
-
-```bash
-git clone https://github.com/svp1989/symfony-api-skeleton.git
-```
-
-### 2. Dependencies installation
-
-Install all needed dependencies:
-
-```bash
-composer install
-```
-
-### 3. Create JWT auth keys
-
-Create JWT auth keys and configure `.env`:
-
-```bash
-ssh-keygen -t rsa -b 4096 -f private.pem
-openssl rsa -in private.pem -pubout -outform PEM -out public.pem
+## Install with Composer
 
 ```
-
-
-### 4. Configuration
-
-Create `.env` file, which contains all the necessary
-environment variables that application needs:
-
-```bash
-cp .env.dist .env
+    $ curl -s http://getcomposer.org/installer | php
+    $ php composer.phar install or composer install
 ```
 
-### 5. Create database
+## Setting Environment
 
-Create database and upload fixtures:
-
-```bash
-bin/console doctrine:database:create 
-bin/console doctrine:schema:create
-bin/console doctrine:fixtures:load
 ```
-### 6. Start server
-
-Start server and open in the browser http://127.0.0.1:8000/api/doc:
-
-```bash
-bin/console server:start
+    $ cp .env.dist .env
 ```
-## Authorisation
 
-Go to route /api/login:<br>
-**ROLE_USER**:<br>
-    --username:**user**<br>
-    --password:**user**<br>
-    
-**ROLE_ADMIN**<br>
-    --username:**admin**<br>
-    --password:**admin**<br>
+## Generate the SSH keys
+
+```
+    $ mkdir config/jwt
+    $ openssl genrsa -out config/jwt/private.pem -aes256 4096
+    $ openssl rsa -pubout -in config/jwt/private.pem -out config/jwt/public.pem
+```
+
+## Getting phpunit
+
+```
+    $ php bin/phpunit or ./bin/phpunit
+```
+
+## Example Created using Symfony4APIBoilerplateJWT
+
+[Symfony4APIBoilerplateJWT](https://github.com/Tony133/Symfony4APIBoilerplateJWT)
