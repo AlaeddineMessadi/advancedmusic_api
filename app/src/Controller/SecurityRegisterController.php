@@ -280,8 +280,9 @@ class SecurityRegisterController extends FOSRestController implements SecurityRe
         $validator = $this->container->get('app_validator');
 
         $user = new User();
-        $user->setUsername($data->username);
-        $user->setEmail($data->email);
+        $user->setEmail( $data->email);
+        $user->setUsername( $data->email);
+
         $encoder = $this->container->get('security.password_encoder');
         $password = $encoder->encodePassword($user, $data->password);
         $user->setPassword($password);

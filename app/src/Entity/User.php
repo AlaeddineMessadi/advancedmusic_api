@@ -54,17 +54,20 @@ class User extends BaseUser
      */
     protected $email;
 
+
+    /** ---------------RELATIONS--------------- */
+
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\label", mappedBy="user")
+     * @Serializer\Groups({"get_users"})
+     *
      */
     private $labels;
 
-
-
-    /** ---------------RELATIONS--------------- */
     /**
      * @ORM\OneToOne(targetEntity="Address")
      * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
+     * @Serializer\Groups({"get_users"})
      *
      * @var $address Address
      */
@@ -76,8 +79,6 @@ class User extends BaseUser
      * @Serializer\Groups({"get_users"})
      */
     private $profile;
-
-
 
 
 
