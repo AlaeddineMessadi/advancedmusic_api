@@ -1,0 +1,11 @@
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: main
+    user_class: App\Entity\User
+    service:                               # this lines
+        mailer: fos_user.mailer.twig_swift # this lines
+    from_email:
+        address: "alaeddine.messadi@gmail.com"
+        sender_name: "Alaeddine Messadi"
+    resetting:
+        token_ttl: 86400

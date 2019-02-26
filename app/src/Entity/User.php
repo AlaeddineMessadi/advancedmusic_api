@@ -2,132 +2,114 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
+use App\Entity\Traits\IdTrait;
+use App\Entity\Traits\TimestampTrait;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
+use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * User
- *
- * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\HasLifecycleCallbacks()
+ * @ApiResource(
+ *     attributes={
+ *          "access_control"="is_granted('ROLE_ADMIN')",
+ *          "normalization_context"={
+ *                 "groups"={"get_users", "user-read"},
+ *                 "datetime_format"="d.m.Y H:i:s"
+ *          },
+ *          "denormalization_context"={
+ *                  "groups"={"user", "user-write"},
+ *                  "datetime_format"="d.m.Y H:i:s"
+ *          }
+ *     }
+ * )
  */
-class User implements UserInterface
+class User extends BaseUser
 {
+    use IdTrait;
+    use TimestampTrait;
+
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"get_users"})
      */
-    private $id;
+    protected $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @Groups({"get_users"})
+     * @Assert\NotBlank()
      */
-    private $name;
+    protected $username;
 
     /**
-     * @ORM\Column(type="string")
+     * @Groups({"get_users"})
+     * @Assert\Email()
+     * @Assert\NotBlank()
+
      */
-    private $surname;
+    protected $email;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\OneToOne(targetEntity="App\Entity\Profile", inversedBy="user", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(name="profile_id", referencedColumnName="id")
+     * @Groups({"get_users"})
      */
-    private $username;
+    private $profile;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="user")
      */
-    private $email;
+    private $posts;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="datetime", name="created_at")
+     * @Groups({"get_users"})
      */
-    private $password;
+    protected $createdAt;
+
+    public function __construct()
+    {
+        $this->posts = new ArrayCollection();
+        parent::__construct();
+    }
 
     /**
-     * @ORM\Column(type="json")
+     * @return \DateTime
      */
-    private $roles = [];
+    public function getCreatedAt(): \DateTime
+    {
+        return $this->createdAt;
+    }
+    /**
+     * @return array|null
+     */
+    public function getPosts():? array
+    {
+        return $this->posts->toArray();
+    }
 
-	public function getId(): int
-	{
-		return $this->id;
-	}
+    /**
+     * @param Profile|null $profile
+     * @return User
+     */
+    public function setProfile(Profile $profile = null): self
+    {
+        $this->profile = $profile;
+        return $this;
+    }
 
-	public function setName(string $name): void
-	{
-		$this->name = $name;
-	}
-
-	public function getName(): ?string
-	{
-		return $this->name;
-	}
-
-	public function setSurname(string $surname): void
-	{
-		$this->surname = $surname;
-	}
-
-	public function getSurname(): ?string
-	{
-		return $this->surname;
-	}
-
-	public function setUsername(string $username): void
-	{
-		$this->username = $username;
-	}
-
-	public function getUsername(): ?string
-	{
-		return $this->username;
-	}
-
-	public function setEmail(string $email): void
-	{
-		$this->email = $email;
-	}
-
-	public function getEmail(): ?string
-	{
-		return $this->email;
-	}
-
-	public function setPassword(string $password): void
-	{
-		$this->password = $password;
-	}
-
-	public function getPassword(): ?string
-	{
-		return $this->password;
-	}
-
-	public function getRoles(): array
-	{
-		$roles = $this->roles;
-
-		if (empty($roles)) {
-			$roles[] = 'ROLE_USER';
-		}
-
-		return array_unique($roles);
-	}
-
-	public function setRoles(array $roles): void
-	{
-		$this->roles = $roles;
-	}
-
-	public function getSalt(): ?string
-	{
-		return null;
-	}
-
-	public function eraseCredentials(): void
-	{
-
-	}
+    /**
+     * @return Profile|null
+     */
+    public function getProfile():? Profile
+    {
+        return $this->profile;
+    }
 }
