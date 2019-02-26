@@ -23,4 +23,15 @@ class UserRepository extends ServiceEntityRepository
             ->getQuery()
             ->getOneOrNullResult();
     }
+
+    public function findByUserOrEmail(string $username, string $email):? User
+    {
+        return $this->createQueryBuilder('u')
+            ->where('u.username = :username')
+            ->orWhere('u.email = :email')
+            ->setParameter('username', $username)
+            ->setParameter('email', $email)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }

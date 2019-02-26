@@ -41,3 +41,44 @@ services:
         tags:
             - { name: kernel.event_listener, event: change.password.event.email_change_password_event, method: onMailChangePasswordEvent }
 
+
+# custom
+    token_authenticator:
+        class: App\Security\TokenAuthenticator
+        arguments:
+            - '@lexik_jwt_authentication.encoder.default'
+            - '@doctrine.orm.entity_manager'
+            - '@Symfony\Component\HttpFoundation\RequestStack'
+        public: true
+
+    'App\Doctrine\CurrentUserExtension':
+        tags:
+            - { name: api_platform.doctrine.orm.query_extension.collection, priority: 9 }
+            - { name: api_platform.doctrine.orm.query_extension.item }
+
+
+    token_generator:
+        class: App\Security\TokenGenerator
+        arguments: ['@fos_user.util.token_generator.default']
+        public: true
+
+    app_validator:
+        class: App\Utils\Validator
+        arguments:
+            - '@validator'
+        public: true
+
+    profile_service:
+        class: App\Service\Profile
+        arguments:
+            - '@token_authenticator'
+            - '@Symfony\Component\HttpFoundation\RequestStack'
+            - '@doctrine.orm.entity_manager'
+        public: true
+
+    kernel.listener.acme_foo_exception_listener:
+        class: App\Listener\ExceptionListener
+        arguments:
+            - '@kernel'
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }

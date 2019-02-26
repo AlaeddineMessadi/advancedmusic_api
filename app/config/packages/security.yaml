@@ -13,14 +13,14 @@ security:
 
     firewalls:
         login:
-            pattern:  ^/api/login
+            pattern:  ^/api/v1/login
             stateless: true
             anonymous: true
             provider: fos_userbundle
-            form_login:
-                check_path: /api/login
-                username_parameter: username
-                password_parameter: password
+            json_login:
+                check_path: /api/v1/login
+#                username_parameter: username
+#                password_parameter: password
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
                 require_previous_session: false
@@ -31,15 +31,19 @@ security:
             stateless: true
             anonymous: true
             lexik_jwt: ~
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
 
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
     access_control:
-        - { path: ^/api/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/profile, roles: [ ROLE_USER ] }
-        - { path: ^/api/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/doc, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api, roles: [ ROLE_USER ] }
+        - { path: ^/api/v1/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/v1/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/v1/profile, roles: [ ROLE_USER ] }
+        - { path: ^/api/v1/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/v1/doc, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/v1/, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        - { path: ^/api/v1, roles: [ ROLE_USER ] }

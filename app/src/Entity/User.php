@@ -64,9 +64,9 @@ class User extends BaseUser
     private $profile;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\labels", mappedBy="user")
      */
-    private $posts;
+    private $labels;
 
     /**
      * @ORM\Column(type="datetime", name="created_at")
@@ -76,7 +76,7 @@ class User extends BaseUser
 
     public function __construct()
     {
-        $this->posts = new ArrayCollection();
+        $this->labels = new ArrayCollection();
         parent::__construct();
     }
 
@@ -90,9 +90,9 @@ class User extends BaseUser
     /**
      * @return array|null
      */
-    public function getPosts():? array
+    public function getLabels():? array
     {
-        return $this->posts->toArray();
+        return $this->labels->toArray();
     }
 
     /**
@@ -112,4 +112,5 @@ class User extends BaseUser
     {
         return $this->profile;
     }
+
 }

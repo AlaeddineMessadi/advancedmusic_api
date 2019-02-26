@@ -17,6 +17,11 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Guard\AbstractGuardAuthenticator;
 use App\Entity\User;
 
+/**
+ * Class JwtAuthenticator  (TODO old authenticator to be removed )
+ * @package App\Security
+ */
+
 class JwtAuthenticator extends AbstractGuardAuthenticator
 {
     private $em;

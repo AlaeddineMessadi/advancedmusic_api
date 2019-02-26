@@ -9,11 +9,11 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
+ * @ORM\Entity(repositoryClass="LabelRepository")
  * @ORM\HasLifecycleCallbacks()
  * @ApiResource()
  */
-class Post
+class Label
 {
     use IdTrait;
     use TimestampTrait;
@@ -38,6 +38,8 @@ class Post
      */
     private $description;
 
+
+
     /**
      * @return User
      */
@@ -48,7 +50,7 @@ class Post
 
     /**
      * @param User $user
-     * @return Post
+     * @return Label
      */
     public function setUser(User $user): self
     {
@@ -58,7 +60,7 @@ class Post
 
     /**
      * @param string $name
-     * @return Post
+     * @return Label
      */
     public function setName(string $name): self
     {
@@ -76,7 +78,7 @@ class Post
 
     /**
      * @param string $description
-     * @return Post
+     * @return Label
      */
     public function setDescription(string $description):self
     {
