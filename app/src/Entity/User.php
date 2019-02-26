@@ -57,16 +57,33 @@ class User extends BaseUser
     protected $email;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\labels", mappedBy="user")
+     */
+    private $labels;
+
+
+
+
+    /** ---------------RELATIONS--------------- */
+    /**
+     * @ORM\OneToOne(targetEntity="Address")
+     * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
+     *
+     * @var $address Address
+     */
+    private $address;
+
+    /**
      * @ORM\OneToOne(targetEntity="App\Entity\Profile", inversedBy="user", cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="profile_id", referencedColumnName="id")
      * @Groups({"get_users"})
      */
     private $profile;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\labels", mappedBy="user")
-     */
-    private $labels;
+
+
+
+
 
     /**
      * @ORM\Column(type="datetime", name="created_at")

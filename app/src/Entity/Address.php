@@ -52,7 +52,7 @@ class Address
     private $city;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Constants\Country")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Country")
      * @ORM\JoinColumn(name="country_id", referencedColumnName="id")
      */
     private $country;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository\Constants;
+namespace App\Repository;
 
 use App\Entity\Country;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;

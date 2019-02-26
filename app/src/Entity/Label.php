@@ -18,11 +18,7 @@ class Label
     use IdTrait;
     use TimestampTrait;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     */
-    private $user;
+
 
     /**
      * @ORM\Column(type="string")
@@ -37,6 +33,27 @@ class Label
      * @Assert\Type(type="string")
      */
     private $description;
+
+
+
+
+    /** ---------------RELATIONS--------------- */
+    /**
+     * @ORM\OneToOne(targetEntity="Address")
+     * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
+     *
+     * @var $address Address
+     */
+    private $address;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
+
+
+    /** -------------End RELATIONS------------- */
 
 
 
