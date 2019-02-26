@@ -36,6 +36,9 @@ install:
 enter:
 	@docker exec -it --user="www-data" api_server_php sh
 
+root:
+	@docker exec -it --user="root" api_server_php sh
+
 db:
 	@docker exec -it --user="www-data" api_server_php sh -c "bin/console doctrine:schema:create"
 

@@ -31,6 +31,8 @@ services:
                 TIMEZONE: ${TIMEZONE}
         volumes:
             - ${SYMFONY_APP_PATH}:/var/www/html
+#            - /dev/null:/var/www/html/var
+#            - /dev/null:/var/www/html/vendor
         links:
             - redis
         depends_on:
