@@ -15,6 +15,8 @@ class HelloController extends FOSRestController
      */
     public function indexAction(): Response
     {
+        $varible = "";
+
         return new JsonResponse([
             'API' => 'Advanced Music API',
             'version' => 'v1'

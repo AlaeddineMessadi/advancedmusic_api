@@ -55,7 +55,7 @@ class User extends BaseUser
     protected $email;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\labels", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\label", mappedBy="user")
      */
     private $labels;
 
