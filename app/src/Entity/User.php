@@ -8,9 +8,8 @@ use App\Entity\Traits\TimestampTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
-use Symfony\Component\Serializer\Annotation\Groups;
+use JMS\Serializer\Annotation as Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -38,21 +37,20 @@ class User extends BaseUser
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"get_users"})
+     * @Serializer\Groups({"get_users"})
      */
     protected $id;
 
     /**
-     * @Groups({"get_users"})
+     * @Serializer\Groups({"get_users"})
      * @Assert\NotBlank()
      */
     protected $username;
 
     /**
-     * @Groups({"get_users"})
+     * @Serializer\Groups({"get_users"})
      * @Assert\Email()
      * @Assert\NotBlank()
-
      */
     protected $email;
 
@@ -60,7 +58,6 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="App\Entity\labels", mappedBy="user")
      */
     private $labels;
-
 
 
 
@@ -76,7 +73,7 @@ class User extends BaseUser
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Profile", inversedBy="user", cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="profile_id", referencedColumnName="id")
-     * @Groups({"get_users"})
+     * @Serializer\Groups({"get_users"})
      */
     private $profile;
 
@@ -87,7 +84,7 @@ class User extends BaseUser
 
     /**
      * @ORM\Column(type="datetime", name="created_at")
-     * @Groups({"get_users"})
+     * @Serializer\Groups({"get_users"})
      */
     protected $createdAt;
 

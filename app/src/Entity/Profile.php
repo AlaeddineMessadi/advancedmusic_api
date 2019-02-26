@@ -5,28 +5,16 @@ namespace App\Entity;
 use App\Entity\Traits\IdTrait;
 use App\Entity\Traits\TimestampTrait;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="LabelRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ProfileRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class Profile
 {
     use IdTrait;
     use TimestampTrait;
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     * @Groups({"get_users"})
-     */
-    protected $id;
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User", mappedBy="profile")
-     */
-    private $user;
 
     /**
      * @ORM\Column(type="string", name="first_name")
@@ -69,6 +57,17 @@ class Profile
      * @Assert\Date()
      */
     private $birthday;
+
+    /** ---------------RELATIONS--------------- */
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\User", mappedBy="profile")
+     */
+    private $user;
+
+    /** -------------End RELATIONS------------- */
+
+
 
     /**
      * @return User|null

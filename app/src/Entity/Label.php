@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="LabelRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\LabelRepository")
  * @ORM\HasLifecycleCallbacks()
  * @ApiResource()
  */
@@ -38,8 +38,9 @@ class Label
 
 
     /** ---------------RELATIONS--------------- */
+
     /**
-     * @ORM\OneToOne(targetEntity="Address")
+     * @ORM\OneToOne(targetEntity="App\Entity\Address")
      * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
      *
      * @var $address Address
@@ -52,6 +53,19 @@ class Label
      */
     private $user;
 
+
+    /**
+     * Many Users have Many Groups.
+     * @ORM\ManyToOne(targetEntity="App\Entity\Contact")
+     * @ORM\JoinColumn(name="contact_id", referencedColumnName="id")
+     */
+    private $contact;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Country")
+     * @ORM\JoinColumn(name="country_id", referencedColumnName="id")
+     */
+    private $country;
 
     /** -------------End RELATIONS------------- */
 

@@ -95,6 +95,7 @@ class SecurityAuthController extends Controller implements SecurityAuth
      * @Route("/logout", methods={"GET"})
      * @param Request $request
      * @return JsonResponse
+     * @throws \Exception
      */
     public function getLogoutAction(Request $request): JsonResponse
     {
