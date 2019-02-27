@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Controller\Security\SecurityAuth;
+use FOS\RestBundle\Controller\AbstractFOSRestController;
+use FOS\RestBundle\Controller\FOSRestController;
 use Swagger\Annotations as SWG;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -15,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
  *
  * @package App\Controller
  */
-class SecurityAuthController extends Controller implements SecurityAuth
+class SecurityAuthController extends AbstractFOSRestController implements SecurityAuth
 {
     /**
      * Login user

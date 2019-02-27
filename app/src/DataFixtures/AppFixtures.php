@@ -13,8 +13,8 @@ class AppFixtures extends Fixture implements ContainerAwareInterface
 {
     public function load(ObjectManager $manager)
     {
-        $this->loadUsers($manager);
-        $this->loadBooks($manager);
+//        $this->loadUsers($manager);
+//        $this->loadBooks($manager);
     }
 
 	private function loadBooks(ObjectManager $manager)
