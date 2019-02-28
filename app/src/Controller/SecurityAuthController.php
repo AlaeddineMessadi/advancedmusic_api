@@ -3,21 +3,18 @@
 namespace App\Controller;
 
 use App\Controller\Security\SecurityAuth;
-use FOS\RestBundle\Controller\AbstractFOSRestController;
-use FOS\RestBundle\Controller\FOSRestController;
+use App\Entity\InvalidToken;
+use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use App\Entity\InvalidToken;
-use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class SecurityAuthController
  *
  * @package App\Controller
  */
-class SecurityAuthController extends AbstractFOSRestController implements SecurityAuth
+class SecurityAuthController extends BaseController implements SecurityAuth
 {
     /**
      * Login user
@@ -62,7 +59,7 @@ class SecurityAuthController extends AbstractFOSRestController implements Securi
      *          @SWG\Property(property="message", type="string", description="Error message"),
      *      )
      * )
-     * @Route("/login", methods={"POST"})
+     * @Rest\Route("/login", methods={"POST"})
      * @param Request $request
      * @return JsonResponse
      */
@@ -94,7 +91,7 @@ class SecurityAuthController extends AbstractFOSRestController implements Securi
      *          @SWG\Property(property="message", type="string", description="Error message")
      *      )
      * )
-     * @Route("/logout", methods={"GET"})
+     * @Rest\Route("/logout", methods={"GET"})
      * @param Request $request
      * @return JsonResponse
      * @throws \Exception

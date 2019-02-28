@@ -65,7 +65,7 @@ class User extends BaseUser
     private $labels;
 
     /**
-     * @ORM\OneToOne(targetEntity="Address")
+     * @ORM\OneToOne(targetEntity="App\Entity\Address")
      * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
      * @Serializer\Groups({"get_users"})
      *
@@ -80,14 +80,6 @@ class User extends BaseUser
      */
     private $profile;
 
-
-
-
-    /**
-     * @ORM\Column(type="datetime", name="created_at")
-     * @Serializer\Groups({"get_users"})
-     */
-    protected $createdAt;
 
     public function __construct()
     {

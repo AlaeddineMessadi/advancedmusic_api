@@ -3,16 +3,16 @@
 #    defaults: { _controller: 'App\Controller\HelloController::index' }
 
 controllers:
-  prefix: /api/v1
+  prefix: /api
   resource: ../src/Controller/
 
 api_entrypoint:
-  path: /api/v1
+  path: /api
   methods: [GET]
 
 api_doc:
-  path: /api/v1
+  path: /api
   methods: [GET]
 
 api_jsonld_context:
-  path: /api/v1
+  path: /api

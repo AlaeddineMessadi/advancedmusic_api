@@ -3,19 +3,18 @@
 namespace App\Controller;
 
 use App\Controller\Security\SecurityProfile;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\RestBundle\Controller\Annotations as Rest;
+use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
-use Swagger\Annotations as SWG;
 
 /**
  * Class SecurityProfileController
  * Working with user profile
  * @package App\Controller
  */
-class SecurityProfileController extends Controller implements SecurityProfile
+class SecurityProfileController extends BaseController implements SecurityProfile
 {
 
     /**
@@ -53,7 +52,7 @@ class SecurityProfileController extends Controller implements SecurityProfile
      *      )
      * )
      * @param Request $request
-     * @Route("/profiles/change-password", methods={"PUT"})
+     * @Rest\Route("/profiles/change-password", methods={"PUT"})
      * @return JsonResponse
      */
     public function putChangePasswordAction(Request $request): JsonResponse
@@ -115,7 +114,7 @@ class SecurityProfileController extends Controller implements SecurityProfile
      *      )
      * )
      * @param $token string
-     * @Route("/profiles/confirm-email-update/{token}", methods={"GET"})
+     * @Rest\Route("/profiles/confirm-email-update/{token}", methods={"GET"})
      * @return JsonResponse
      */
     public function getProfilesConfirmEmailUpdateAction($token): JsonResponse

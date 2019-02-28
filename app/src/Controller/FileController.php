@@ -2,19 +2,18 @@
 
 namespace App\Controller;
 
+use App\Entity\Files;
+use App\Utils\UploadLimits;
+use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
-use App\Utils\UploadLimits;
-use App\Entity\Files;
 
 /**
  * Class FileController
  * @package App\Controller
  */
-class FileController extends Controller
+class FileController extends BaseController
 {
     /**
      * Upload file on the server
@@ -96,13 +95,15 @@ class FileController extends Controller
      *          @SWG\Property(property="message", type="string", description="Error message")
      *      )
      * )
-     * @Route(
+     * @Rest\Route(
      *      "/files/upload",
      *      methods={"POST"},
      *      defaults={"_api_resource_class"="App\Entity\Files"}
      * )
      * @param Request $request
      * @return JsonResponse
+     *
+     * @throws \Exception
      */
     public function getFilesUploadAction(Request $request): JsonResponse
     {

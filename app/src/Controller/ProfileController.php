@@ -2,19 +2,18 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\RestBundle\Controller\Annotations as Rest;
+use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
-use Swagger\Annotations as SWG;
 
 /**
  * Class ProfileController
  * Working with user profile
  * @package App\Controller
  */
-class ProfileController extends Controller
+class ProfileController extends BaseController
 {
 
     /**
@@ -58,7 +57,7 @@ class ProfileController extends Controller
      *      )
      * )
      * @param Request $request
-     * @Route("/profiles", methods={"POST"})
+     * @Rest\Route("/profiles", methods={"POST"})
      * @return JsonResponse
      */
     public function postProfileAction(Request $request): JsonResponse
@@ -114,7 +113,7 @@ class ProfileController extends Controller
      *      )
      * )
      * @param Request $request
-     * @Route("/profiles", methods={"PUT"})
+     * @Rest\Route("/profiles", methods={"PUT"})
      * @return JsonResponse
      */
     public function putProfileAction(Request $request): JsonResponse
@@ -166,7 +165,7 @@ class ProfileController extends Controller
      *      )
      * )
      * @param $request Request
-     * @Route("/profiles", methods={"GET"})
+     * @Rest\Route("/profiles", methods={"GET"})
      * @return JsonResponse
      */
     public function getProfilesAction(Request $request): JsonResponse
