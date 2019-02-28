@@ -11,9 +11,9 @@ ADD symfony.conf /etc/nginx/sites-available/
 RUN ln -s /etc/nginx/sites-available/symfony.conf /etc/nginx/sites-enabled/symfony \
 && rm /etc/nginx/sites-enabled/default
 
-RUN mkdir -p /var/logs/nginx/ \
-&& touch /var/logs/nginx/symfony_error.log \
-&& touch /var/logs/nginx/symfony_access.log
+RUN mkdir -p /var/log/nginx/ \
+&& touch /var/log/nginx/symfony_error.log \
+&& touch /var/log/nginx/symfony_access.log
 RUN echo "upstream php-upstream { server php:9000; }" > /etc/nginx/conf.d/upstream.conf
 
 CMD ["nginx"]
