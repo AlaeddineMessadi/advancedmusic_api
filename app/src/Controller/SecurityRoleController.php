@@ -2,18 +2,18 @@
 
 namespace App\Controller;
 
+use FOS\RestBundle\Controller\AbstractFOSRestController;
+use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class SecurityRoleController
  * Role management
  * @package App\Controller
  */
-class SecurityRoleController extends Controller
+class SecurityRoleController extends AbstractFOSRestController
 {
     /**
      * Add new role
@@ -47,7 +47,7 @@ class SecurityRoleController extends Controller
      *      response=401,
      *      description="Permission denied"
      * )
-     * @Route("/role/add", methods={"put"})
+     * @Rest\Route("/role/add", methods={"put"})
      * @param Request $request
      * @return JsonResponse
      */
@@ -98,7 +98,7 @@ class SecurityRoleController extends Controller
      *      response=401,
      *      description="Permission denied"
      * )
-     * @Route("/role/remove", methods={"delete"})
+     * @Rest\Route("/role/remove", methods={"delete"})
      * @param Request $request
      * @return JsonResponse
      */

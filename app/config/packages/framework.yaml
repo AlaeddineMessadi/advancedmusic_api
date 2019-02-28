@@ -14,4 +14,6 @@ framework:
     php_errors:
         log: true
 
+    profiler: { only_exceptions: false }
+
 

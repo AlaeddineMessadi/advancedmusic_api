@@ -3,20 +3,20 @@
 namespace App\Controller;
 
 use App\Controller\Security\SecurityResetting;
+use FOS\RestBundle\Controller\AbstractFOSRestController;
+use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Validator\Constraints\Email as EmailConstraint;
 use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
+use Symfony\Component\Validator\Constraints\Email as EmailConstraint;
 
 /**
  * Class SecurityResettingController
  * Resetting Password
  * @package App\Controller
  */
-class SecurityResettingController extends Controller implements SecurityResetting
+class SecurityResettingController extends AbstractFOSRestController implements SecurityResetting
 {
     /**
      * Check user email for resetting password
@@ -59,7 +59,7 @@ class SecurityResettingController extends Controller implements SecurityResettin
      *          @SWG\Property(property="message", type="string", description="Error message")
      *      )
      * )
-     * @Route("/resetting/check-email", methods={"GET"})
+     * @Rest\Route("/resetting/check-email", methods={"GET"})
      * @param Request $request
      * @return JsonResponse
      */
@@ -129,7 +129,7 @@ class SecurityResettingController extends Controller implements SecurityResettin
      *          @SWG\Property(property="message", type="string", description="Error message")
      *      )
      * )
-     * @Route("/resetting/reset/{token}", methods={"GET"})
+     * @Rest\Route("/resetting/reset/{token}", methods={"GET"})
      * @param string $token
      * @return JsonResponse
      */
@@ -197,7 +197,7 @@ class SecurityResettingController extends Controller implements SecurityResettin
      *          @SWG\Property(property="message", type="string", description="Error message")
      *      )
      * )
-     * @Route("/resetting/password/{token}", methods={"POST"})
+     * @Rest\Route("/resetting/password/{token}", methods={"POST"})
      * @param Request $request
      * @param string $token
      * @return JsonResponse
@@ -284,9 +284,10 @@ class SecurityResettingController extends Controller implements SecurityResettin
      *          @SWG\Property(property="message", type="string", description="Error message")
      *      )
      * )
-     * @Route("/resetting/send-email", methods={"POST"})
+     * @Rest\Route("/resetting/send-email", methods={"POST"})
      * @param Request $request
      * @return JsonResponse
+     * @throws \Exception
      */
     public function postResettingSendEmailAction(Request $request): JsonResponse
     {
