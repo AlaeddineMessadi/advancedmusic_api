@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Controller\Security\SecurityResetting;
-use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -16,7 +15,7 @@ use Symfony\Component\Validator\Constraints\Email as EmailConstraint;
  * Resetting Password
  * @package App\Controller
  */
-class SecurityResettingController extends AbstractFOSRestController implements SecurityResetting
+class SecurityResettingController extends BaseController implements SecurityResetting
 {
     /**
      * Check user email for resetting password

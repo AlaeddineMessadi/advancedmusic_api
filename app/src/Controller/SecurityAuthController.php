@@ -3,19 +3,18 @@
 namespace App\Controller;
 
 use App\Controller\Security\SecurityAuth;
-use FOS\RestBundle\Controller\AbstractFOSRestController;
+use App\Entity\InvalidToken;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use App\Entity\InvalidToken;
 
 /**
  * Class SecurityAuthController
  *
  * @package App\Controller
  */
-class SecurityAuthController extends AbstractFOSRestController implements SecurityAuth
+class SecurityAuthController extends BaseController implements SecurityAuth
 {
     /**
      * Login user

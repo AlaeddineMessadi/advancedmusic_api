@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Controller\Security\SecurityProfile;
-use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -15,7 +14,7 @@ use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationExc
  * Working with user profile
  * @package App\Controller
  */
-class SecurityProfileController extends AbstractFOSRestController implements SecurityProfile
+class SecurityProfileController extends BaseController implements SecurityProfile
 {
 
     /**

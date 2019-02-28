@@ -2,19 +2,18 @@
 
 namespace App\Controller;
 
-use FOS\RestBundle\Controller\AbstractFOSRestController;
+use App\Entity\Files;
+use App\Utils\UploadLimits;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use App\Utils\UploadLimits;
-use App\Entity\Files;
 
 /**
  * Class FileController
  * @package App\Controller
  */
-class FileController extends AbstractFOSRestController
+class FileController extends BaseController
 {
     /**
      * Upload file on the server

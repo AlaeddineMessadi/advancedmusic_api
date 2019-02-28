@@ -56,22 +56,22 @@ class User extends BaseUser
 
 
     /** ---------------RELATIONS--------------- */
-//
-//    /**
-//     * @ORM\OneToMany(targetEntity="App\Entity\label", mappedBy="user")
-//     * @Serializer\Groups({"get_users"})
-//     *
-//     */
-//    private $labels;
-//
-//    /**
-//     * @ORM\OneToOne(targetEntity="Address")
-//     * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
-//     * @Serializer\Groups({"get_users"})
-//     *
-//     * @var $address Address
-//     */
-//    private $address;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\label", mappedBy="user")
+     * @Serializer\Groups({"get_users"})
+     *
+     */
+    private $labels;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Address")
+     * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
+     * @Serializer\Groups({"get_users"})
+     *
+     * @var $address Address
+     */
+    private $address;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Profile", inversedBy="user", cascade={"persist", "remove"})

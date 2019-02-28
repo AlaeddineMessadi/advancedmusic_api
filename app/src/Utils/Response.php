@@ -12,14 +12,18 @@ class Response
 {
     /**
      * @param int $httpCode
-     * @param string $message
+     * @param string $payload
      * @return JsonResponse
      */
-    public static function toJson(int $httpCode, $message = 'success'): JsonResponse
+    public static function toJson(int $httpCode, $payload = 'success'): JsonResponse
     {
-        return new JsonResponse([
-            'code' => $httpCode,
-            'message' => $message
-        ], $httpCode);
+        $response = ['code' => $httpCode];
+        if (is_array($payload)) {
+            $response = array_merge($response, $payload);
+        } else {
+            $response = array_merge($response, ['message' => $payload]);
+        }
+
+        return new JsonResponse($response, $httpCode);
     }
 }

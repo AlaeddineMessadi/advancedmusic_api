@@ -2,19 +2,18 @@
 
 namespace App\Controller;
 
-use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
+use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
-use Swagger\Annotations as SWG;
 
 /**
  * Class ProfileController
  * Working with user profile
  * @package App\Controller
  */
-class ProfileController extends AbstractFOSRestController
+class ProfileController extends BaseController
 {
 
     /**

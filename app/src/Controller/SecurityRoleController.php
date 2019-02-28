@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -13,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
  * Role management
  * @package App\Controller
  */
-class SecurityRoleController extends AbstractFOSRestController
+class SecurityRoleController extends BaseController
 {
     /**
      * Add new role

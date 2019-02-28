@@ -6,7 +6,6 @@ use App\Controller\Security\SecurityRegister;
 use App\Entity\User;
 use App\Utils\HttpCode;
 use App\Utils\Response;
-use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -19,7 +18,7 @@ use Symfony\Component\Validator\Constraints\Email as EmailConstraint;
  * Registration
  * @package App\Controller
  */
-class SecurityRegisterController extends AbstractFOSRestController implements SecurityRegister
+class SecurityRegisterController extends BaseController implements SecurityRegister
 {
 
     const REQUIRE_FIELD = [
@@ -27,6 +26,84 @@ class SecurityRegisterController extends AbstractFOSRestController implements Se
         'password',
         'email'
     ];
+
+
+    /**
+     * Register new user
+     * @SWG\Tag(
+     *      name="Register"
+     * )
+     * @SWG\Parameter(
+     *      name="body",
+     *      in="body",
+     *      required=true,
+     *      description="Registration data",
+     *      @SWG\Schema(
+     *          type="object",
+     *          example={
+     *              "username": "username",
+     *              "email": "email",
+     *              "password": "password"
+     *          }
+     *      )
+     * )
+     * @SWG\Response(
+     *      response=200,
+     *      description="User registered",
+     *      @SWG\Schema(
+     *          type="object",
+     *          example={"code": "200", "message": "success"},
+     *          @SWG\Property(property="success", type="string", description="User registered")
+     *      )
+     * )
+     * @SWG\Response(
+     *      response=400,
+     *      description="'Required property', 'Invalid username', 'Invalid e-mail'",
+     *      @SWG\Schema(
+     *          type="object",
+     *          example={"code": "400", "message": "errors"},
+     *          @SWG\Property(property="code", type="integer", description="Http status code"),
+     *          @SWG\Property(property="errors", type="string", description="Error message")
+     *      )
+     * )
+     * @Rest\Route("/register", methods={"POST"})
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function postRegisterAction(Request $request): JsonResponse
+    {
+        $this->getRegisterCheckEmailAction($request);
+
+        $data = $this->getDataFromRequest($request);
+        $validator = $this->container->get('app_validator');
+
+        $user = new User();
+        $user->setEmail( $data->email);
+        $user->setUsername( $data->email);
+
+        $encoder = $this->container->get('security.password_encoder');
+        $password = $encoder->encodePassword($user, $data->password);
+        $user->setPassword($password);
+
+        $errors = $validator->toArray($user);
+
+        if ($errors) {
+            return Response::toJson(HttpCode::BAD_REQUEST, $errors);
+        }
+
+        $tokenGenerator = $this->container->get('token_generator');
+
+        if (!$user->isEnabled()) {
+            $user->setConfirmationToken($tokenGenerator->generateToken());
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
+
+        return $this->jsonResponse(HttpCode::OK);
+    }
+
 
     /**
      * Check user email before registration
@@ -75,13 +152,10 @@ class SecurityRegisterController extends AbstractFOSRestController implements Se
      */
     public function getRegisterCheckEmailAction(Request $request): JsonResponse
     {
-        $email = $request->query->get('email');
+        $email = $this->getDataFromRequest($request)->email;
 
         if (!$email) {
-            return new JsonResponse(array(
-                'code' => 400,
-                'message' => 'E-mail required'
-            ), 400);
+            return $this->jsonResponse(HttpCode::BAD_REQUEST, 'E-mail required');
         }
 
         $emailConstraint = new EmailConstraint();
@@ -90,22 +164,17 @@ class SecurityRegisterController extends AbstractFOSRestController implements Se
         $errorCount = count($validator->validate($email, $emailConstraint));
 
         if ($errorCount != 0) {
-            return new JsonResponse(array(
-                'code' => 400,
-                'message' => 'Invalid e-mail format'
-            ), 400);
+            return $this->jsonResponse(HttpCode::BAD_REQUEST, 'Invalid e-mail format');
+
         }
 
         $user = $this->getDoctrine()->getRepository('App:User');
 
         if ($user->findOneBy(array('email' => $email))) {
-            return new JsonResponse(array(
-                'code' => 409,
-                'message' => 'E-mail exists'
-            ), 409);
+            return $this->jsonResponse(HttpCode::CONFLICT, 'E-mail exists already');
         }
 
-        return new JsonResponse(array('success' => 'ok'));
+        return $this->jsonResponse(HttpCode::OK);
     }
 
     /**
@@ -155,25 +224,19 @@ class SecurityRegisterController extends AbstractFOSRestController implements Se
      */
     public function getRegisterCheckUsernameAction(Request $request): JsonResponse
     {
-        $username = $request->query->get('username');
+        $username = $this->getDataFromRequest($request)->username;
 
         if (!$username) {
-            return new JsonResponse(array(
-                'code' => 400,
-                'message' => 'Username required'
-            ), 400);
+            $this->jsonResponse(HttpCode::BAD_REQUEST, 'Username required');
         }
 
         $repo = $this->getDoctrine()->getRepository('App:User');
 
         if ($repo->findOneBy(array('username' => $username))) {
-            return new JsonResponse(array(
-                'code' => 409,
-                'message' => 'User exists'
-            ), 409);
+            $this->jsonResponse(HttpCode::CONFLICT, 'Username has been already taken');
         }
 
-        return new JsonResponse(array('success' => 'ok'));
+        return $this->jsonResponse(HttpCode::OK);
     }
 
     /**
@@ -218,7 +281,7 @@ class SecurityRegisterController extends AbstractFOSRestController implements Se
             ->findOneBy(array('confirmationToken' => $token));
 
         if (!$user) {
-            throw new CustomUserMessageAuthenticationException('Invalid E-mail token');
+            return $this->jsonResponse(HttpCode::BAD_REQUEST, 'Invalid E-mail token');
         }
 
         if (!$user->isEnabled()) {
@@ -229,81 +292,7 @@ class SecurityRegisterController extends AbstractFOSRestController implements Se
             $em->flush();
         }
 
-        return new JsonResponse(array('success' => 'ok'));
-    }
-
-    /**
-     * Register new user
-     * @SWG\Tag(
-     *      name="Register"
-     * )
-     * @SWG\Parameter(
-     *      name="body",
-     *      in="body",
-     *      required=true,
-     *      description="Registration data",
-     *      @SWG\Schema(
-     *          type="object",
-     *          example={
-     *              "username": "username",
-     *              "email": "email",
-     *              "password": "password"
-     *          }
-     *      )
-     * )
-     * @SWG\Response(
-     *      response=200,
-     *      description="User registered",
-     *      @SWG\Schema(
-     *          type="object",
-     *          example={"code": "200", "message": "success"},
-     *          @SWG\Property(property="success", type="string", description="User registered")
-     *      )
-     * )
-     * @SWG\Response(
-     *      response=400,
-     *      description="'Required property', 'Invalid username', 'Invalid e-mail'",
-     *      @SWG\Schema(
-     *          type="object",
-     *          example={"code": "400", "message": "errors"},
-     *          @SWG\Property(property="code", type="integer", description="Http status code"),
-     *          @SWG\Property(property="errors", type="string", description="Error message")
-     *      )
-     * )
-     * @Rest\Route("/register", methods={"POST"})
-     * @param Request $request
-     * @return JsonResponse
-     */
-    public function postRegisterAction(Request $request): JsonResponse
-    {
-        $data = json_decode($request->getContent(), false);
-        $validator = $this->container->get('app_validator');
-
-        $user = new User();
-        $user->setEmail( $data->email);
-        $user->setUsername( $data->email);
-
-        $encoder = $this->container->get('security.password_encoder');
-        $password = $encoder->encodePassword($user, $data->password);
-        $user->setPassword($password);
-
-        $errors = $validator->toArray($user);
-
-        if ($errors) {
-            return Response::toJson(HttpCode::BAD_REQUEST, $errors);
-        }
-
-        $tokenGenerator = $this->container->get('token_generator');
-
-        if (!$user->isEnabled()) {
-            $user->setConfirmationToken($tokenGenerator->generateToken());
-        }
-
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($user);
-        $em->flush();
-
-        return Response::toJson(HttpCode::OK);
+        return $this->jsonResponse(HttpCode::OK, 'User is enabled');
     }
 
     /**
@@ -327,25 +316,22 @@ class SecurityRegisterController extends AbstractFOSRestController implements Se
      */
     public function getRegisterConfirmedAction(Request $request): JsonResponse
     {
-        $username = $request->query->get('username');
+        $data = $this->getDataFromRequest($request);
 
-        if (!$username) {
-            return new JsonResponse(array(
-                'confirmed' => true
-            ));
+        if (!$data || !isset($data->username) || !$data->username) {
+            return $this->jsonResponse(HTTPCode::OK, ['confirmed' => true]);
         }
 
         $repo = $this->getDoctrine()->getRepository('App:User');
-        $user = $repo->findOneBy(array('username' => $username));
+        $user = $repo->findOneBy(array('username' => $data->username));
 
         if (!$user) {
-            return new JsonResponse(array(
-                'confirmed' => true
-            ));
+            return $this->jsonResponse(HTTPCode::OK, ['confirmed' => true]);
         }
 
-        return new JsonResponse(array(
+        return $this->jsonResponse(HTTPCode::OK, [
             'confirmed' => $user->getConfirmationToken() ? false : true
-        ));
+        ]);
+
     }
 }
