@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Security;
 
-use App\Controller\Security\SecurityRegister;
+use App\Controller\BaseController;
+use App\Controller\Interfaces\Security\SecurityRegister;
 use App\Entity\User;
 use App\Utils\HttpCode;
 use App\Utils\Response;
@@ -168,7 +169,7 @@ class SecurityRegisterController extends BaseController implements SecurityRegis
 
         }
 
-        $user = $this->getDoctrine()->getRepository('App:User');
+        $user = $this->getDoctrine()->getRepository(User::class);
 
         if ($user->findOneBy(array('email' => $email))) {
             return $this->jsonResponse(HttpCode::CONFLICT, 'E-mail exists already');
@@ -230,7 +231,7 @@ class SecurityRegisterController extends BaseController implements SecurityRegis
             $this->jsonResponse(HttpCode::BAD_REQUEST, 'Username required');
         }
 
-        $repo = $this->getDoctrine()->getRepository('App:User');
+        $repo = $this->getDoctrine()->getRepository(User::class);
 
         if ($repo->findOneBy(array('username' => $username))) {
             $this->jsonResponse(HttpCode::CONFLICT, 'Username has been already taken');
@@ -277,7 +278,7 @@ class SecurityRegisterController extends BaseController implements SecurityRegis
     public function getRegisterConfirmAction(string $token): JsonResponse
     {
         $user = $this->getDoctrine()
-            ->getRepository('App:User')
+            ->getRepository(User::class)
             ->findOneBy(array('confirmationToken' => $token));
 
         if (!$user) {
@@ -322,7 +323,7 @@ class SecurityRegisterController extends BaseController implements SecurityRegis
             return $this->jsonResponse(HTTPCode::OK, ['confirmed' => true]);
         }
 
-        $repo = $this->getDoctrine()->getRepository('App:User');
+        $repo = $this->getDoctrine()->getRepository(User::class);
         $user = $repo->findOneBy(array('username' => $data->username));
 
         if (!$user) {

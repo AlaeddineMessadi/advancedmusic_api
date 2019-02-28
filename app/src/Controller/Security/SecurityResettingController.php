@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Security;
 
-use App\Controller\Security\SecurityResetting;
+use App\Controller\BaseController;
+use App\Controller\Interfaces\Security\SecurityResetting;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -85,7 +86,7 @@ class SecurityResettingController extends BaseController implements SecurityRese
             ), 400);
         }
 
-        $repo = $this->getDoctrine()->getRepository('App:User');
+        $repo = $this->getDoctrine()->getRepository(User::class);
 
         if (!$repo->findOneBy(array('email' => $email))) {
             return new JsonResponse(array(
@@ -135,7 +136,7 @@ class SecurityResettingController extends BaseController implements SecurityRese
     public function getResettingResetAction(string $token): JsonResponse
     {
         $user = $this->getDoctrine()
-            ->getRepository('App:User')
+            ->getRepository(User::class)
             ->findOneBy(array('confirmationToken' => $token));
 
         if (!$user) {
@@ -203,7 +204,7 @@ class SecurityResettingController extends BaseController implements SecurityRese
      */
     public function postResettingPasswordAction(Request $request, string $token): JsonResponse
     {
-        $repo = $this->getDoctrine()->getRepository('App:User');
+        $repo = $this->getDoctrine()->getRepository(User::class);
         $user = $repo->findOneBy(array('confirmationToken' => $token));
 
         if (!$user) {
@@ -312,7 +313,7 @@ class SecurityResettingController extends BaseController implements SecurityRese
             ), 400);
         }
 
-        $repo = $this->getDoctrine()->getRepository('App:User');
+        $repo = $this->getDoctrine()->getRepository(User::class);
 
         $user = $repo->findOneBy(array(
             'email' => $email,

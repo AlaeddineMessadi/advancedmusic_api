@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Security;
 
-use App\Controller\Security\SecurityProfile;
+use App\Controller\BaseController;
+use App\Controller\Interfaces\Security\SecurityProfile;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -120,7 +121,7 @@ class SecurityProfileController extends BaseController implements SecurityProfil
     public function getProfilesConfirmEmailUpdateAction($token): JsonResponse
     {
         $user = $this->getDoctrine()
-            ->getRepository('App:User')
+            ->getRepository(User::class)
             ->findOneBy(array('confirmationToken' => $token));
 
         if (!$user) {

@@ -17,13 +17,11 @@ class Response
      */
     public static function toJson(int $httpCode, $payload = 'success'): JsonResponse
     {
-        $response = ['code' => $httpCode];
-        if (is_array($payload)) {
-            $response = array_merge($response, $payload);
-        } else {
-            $response = array_merge($response, ['message' => $payload]);
-        }
-
-        return new JsonResponse($response, $httpCode);
+        return new JsonResponse(
+            [
+                'code' => $httpCode,
+                'message' => $payload
+            ],
+            $httpCode);
     }
 }

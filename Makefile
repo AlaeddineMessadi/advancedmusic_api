@@ -39,6 +39,9 @@ enter:
 root:
 	@docker exec -it --user="root" api_server_php sh
 
+test:
+	@docker exec -it --user="www-data" api_server_php sh -c " bin/phpunit --debug --stderr"
+
 logs:
 	@docker-compose logs -f
 

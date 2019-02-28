@@ -26,6 +26,7 @@ class BookControllerTest extends WebTestCase
             ]
         ]);
 
+        var_dump($response);
         $this->assertEquals(200, $response->getStatusCode());
     }
 
