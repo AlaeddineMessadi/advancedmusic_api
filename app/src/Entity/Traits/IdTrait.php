@@ -21,4 +21,12 @@ trait IdTrait
     {
         return $this->id;
     }
+    /**
+     * @return int
+     */
+    public function setId(int $id): int
+    {
+        $this->id = $id;
+        return $this->id;
+    }
 }

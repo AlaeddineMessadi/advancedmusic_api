@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Entity\Traits\IdTrait;
 use App\Entity\Traits\TimestampTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -22,7 +21,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *                 "datetime_format"="d.m.Y H:i:s"
  *          },
  *          "denormalization_context"={
- *                  "groups"={"user", "user-write"},
+ *                  "groups"={"user-write"},
  *                  "datetime_format"="d.m.Y H:i:s"
  *          }
  *     }
@@ -30,25 +29,25 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class User extends BaseUser
 {
-    use IdTrait;
     use TimestampTrait;
-
+    
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"get_users"})
+     *
+     * @Groups({"get_users", "user-write"})
      */
     protected $id;
-
+    
     /**
-     * @Groups({"get_users"})
+     * @Groups({"get_users", "user-write"})
      * @Assert\NotBlank()
      */
     protected $username;
 
     /**
-     * @Groups({"get_users"})
+     * @Groups({"get_users", "user-write"})
      * @Assert\Email()
      * @Assert\NotBlank()
      */
@@ -59,15 +58,14 @@ class User extends BaseUser
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Label", mappedBy="user")
-     * @Groups({"get_users"})
-     *
+     * @Groups({"get_users", "user-write"})
      */
     private $labels;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Address")
      * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
-     * @Groups({"get_users"})
+     * @Groups({"get_users", "user-write"})
      *
      * @var $address Address
      */
@@ -76,7 +74,7 @@ class User extends BaseUser
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Profile", inversedBy="user", cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="profile_id", referencedColumnName="id")
-     * @Groups({"get_users"})
+     * @Groups({"get_users", "user-write"})
      */
     private $profile;
 
@@ -95,13 +93,24 @@ class User extends BaseUser
         return $this->createdAt;
     }
     /**
-     * @return array|null
+     * @return ArrayCollection|null
      */
     public function getLabels():? array
     {
         return $this->labels->toArray();
     }
-
+    
+    /**
+     * @param ArrayCollection $labels
+     * @return User
+     */
+    public function setLabels($labels): User
+    {
+        $this->labels = $labels;
+        
+        return $this;
+    }
+    
     /**
      * @param Profile|null $profile
      * @return User
@@ -119,5 +128,76 @@ class User extends BaseUser
     {
         return $this->profile;
     }
-
+    
+    /**
+     * @return Address|null
+     */
+    public function getAddress():? Address
+    {
+        return $this->address;
+    }
+    
+    /**
+     * @param Address|null $address
+     * @return User
+     */
+    public function setAddress(Address $address): User
+    {
+        $this->address = $address;
+        
+        return $this;
+    }
+    
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+    
+    /**
+     * @param string $email
+     */
+    public function setEmail($email): void
+    {
+        $this->email = $email;
+    }
+    
+    /**
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+    
+    /**
+     * @param string $username
+     */
+    public function setUsername($username): void
+    {
+        $this->username = $username;
+    }
+    
+    /**
+     * @Groups("get_users")
+     * @return array
+     */
+    public function getRoles(): array
+    {
+        return $this->roles;
+    }
+    
+    /**
+     * @param array $roles
+     *
+     * @return User
+     */
+    public function setRoles(array $roles): User
+    {
+        $this->roles = $roles;
+        
+        return $this;
+    }
 }

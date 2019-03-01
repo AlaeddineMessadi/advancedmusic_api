@@ -6,19 +6,24 @@ use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
 /**
- * Auto-generated Migration: Please modify to your needs!
+ * Fill country table
  */
 final class Version20190221173303 extends AbstractMigration
 {
     public function up(Schema $schema) : void
     {
-        // this up() migration is auto-generated, please modify it to your needs
+        $countriesJson = file_get_contents(__DIR__."/../DataFixtures/countries.json");
+        $countries = json_decode($countriesJson);
+    
+        foreach ($countries as $country) {
+            $this->addSql('INSERT INTO country (name, code) VALUES (?, ?)', [$country->name, $country->code]);
+        }
 
     }
 
     public function down(Schema $schema) : void
     {
-        // this down() migration is auto-generated, please modify it to your needs
-
+        // Drop Country Table
+        $this->addSql('DROP TABLE country');
     }
 }

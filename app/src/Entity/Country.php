@@ -9,7 +9,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CountryRepository")
  * @ORM\HasLifecycleCallbacks()
- * @ApiResource()
+ * @ApiResource(
+ *     attributes={"access_control"="is_granted('ROLE_USER')"},
+ * )
  */
 class Country
 {
@@ -23,7 +25,7 @@ class Country
     /**
      * @var $name string Country name
      *
-     * @ORM\Column(name="name", type="string", length=25)
+     * @ORM\Column(name="name", type="string", length=100)
      */
     private $name;
 

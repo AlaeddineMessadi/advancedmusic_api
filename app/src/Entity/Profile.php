@@ -2,14 +2,30 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\Traits\IdTrait;
 use App\Entity\Traits\TimestampTrait;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProfileRepository")
  * @ORM\HasLifecycleCallbacks()
+ *
+ * @ApiResource(
+ *     attributes={
+ *          "access_control"="is_granted('ROLE_USER')",
+ *          "normalization_context"={
+ *                 "groups"={"read"},
+ *                 "datetime_format"="d.m.Y H:i:s"
+ *          },
+ *          "denormalization_context"={
+ *                  "groups"={"write"},
+ *                  "datetime_format"="d.m.Y H:i:s"
+ *          }
+ *     }
+ * )
  */
 class Profile
 {
@@ -20,29 +36,39 @@ class Profile
      * @ORM\Column(type="string", name="first_name")
      * @Assert\NotBlank()
      * @Assert\Type(type="string")
+     *
+     * @Groups({"read", "write"})
      */
     private $firstName;
     /**
      * @ORM\Column(type="string", name="last_name")
      * @Assert\NotBlank()
      * @Assert\Type(type="string")
+     *
+     * @Groups({"read", "write"})
      */
     private $lastName;
     /**
      * @ORM\Column(type="string", nullable=true)
      * @Assert\Type(type="string")
+     *
+     * @Groups({"read", "write"})
      */
     private $patronymic;
     /**
      * @ORM\Column(type="string", nullable=true)
      * @Assert\NotBlank()
      * @Assert\Type(type="string")
+     *
+     * @Groups({"read", "write"})
      */
     private $citizenship;
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      * @Assert\NotBlank()
      * @Assert\Type(type="string")
+     *
+     * @Groups({"read", "write"})
      */
     private $document;
     /**
@@ -55,6 +81,8 @@ class Profile
      * @ORM\Column(type="datetime", nullable=true)
      * @Assert\NotBlank()
      * @Assert\Date()
+     *
+     * @Groups({"read", "write"})
      */
     private $birthday;
 
@@ -62,6 +90,7 @@ class Profile
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\User", mappedBy="profile")
+     * @Groups({"read"})
      */
     private $user;
 

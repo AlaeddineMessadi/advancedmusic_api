@@ -12,6 +12,15 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Address
 {
+    /**
+     * Address constructor.
+     * @throws \Exception
+     */
+    public function __construct() {
+        $this->setCreatedAt(new \DateTime());
+        $this->setUpdatedAt(new \DateTime());
+    }
+    
     use IdTrait;
     use TimestampTrait;
 
