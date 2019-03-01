@@ -5,7 +5,7 @@ namespace App\Entity;
 use App\Entity\Traits\IdTrait;
 use App\Entity\Traits\TimestampTrait;
 use Doctrine\ORM\Mapping as ORM;
-use JMS\Serializer\Annotation as Serializer;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -35,7 +35,7 @@ class Contact
     private $lastName;
 
     /**
-     * @Serializer\Groups({"get_labels"})
+     * @Groups({"get_labels"})
      * @Assert\Email()
      * @Assert\NotBlank()
      * @Assert\Type(type="string")
@@ -43,14 +43,14 @@ class Contact
     private $primaryEmail;
 
     /**
-     * @Serializer\Groups({"get_labels"})
+     * @Groups({"get_labels"})
      * @Assert\Email()
      * @Assert\Type(type="string")
      */
     private $contactEmail;
 
     /**
-     * @Serializer\Groups({"get_labels"})
+     * @Groups({"get_labels"})
      * @Assert\Email()
      * @Assert\Type(type="string")
      */

@@ -8,7 +8,7 @@ use App\Entity\Traits\TimestampTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
-use JMS\Serializer\Annotation as Serializer;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -37,18 +37,18 @@ class User extends BaseUser
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Serializer\Groups({"get_users"})
+     * @Groups({"get_users"})
      */
     protected $id;
 
     /**
-     * @Serializer\Groups({"get_users"})
+     * @Groups({"get_users"})
      * @Assert\NotBlank()
      */
     protected $username;
 
     /**
-     * @Serializer\Groups({"get_users"})
+     * @Groups({"get_users"})
      * @Assert\Email()
      * @Assert\NotBlank()
      */
@@ -59,7 +59,7 @@ class User extends BaseUser
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Label", mappedBy="user")
-     * @Serializer\Groups({"get_users"})
+     * @Groups({"get_users"})
      *
      */
     private $labels;
@@ -67,7 +67,7 @@ class User extends BaseUser
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Address")
      * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
-     * @Serializer\Groups({"get_users"})
+     * @Groups({"get_users"})
      *
      * @var $address Address
      */
@@ -76,7 +76,7 @@ class User extends BaseUser
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Profile", inversedBy="user", cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="profile_id", referencedColumnName="id")
-     * @Serializer\Groups({"get_users"})
+     * @Groups({"get_users"})
      */
     private $profile;
 
