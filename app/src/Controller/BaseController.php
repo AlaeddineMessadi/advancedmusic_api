@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+use App\Utils\HttpCode;
 use App\Utils\Response;
 use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -26,7 +27,7 @@ class BaseController extends FOSRestController
      * @param mixed $payload
      * @return JsonResponse
      */
-    protected function jsonResponse (int $httpCode, $payload = 'success') : JsonResponse {
+    protected function jsonResponse (int $httpCode = HttpCode::OK, $payload = 'success') : JsonResponse {
         return Response::toJson($httpCode, $payload);
     }
 }

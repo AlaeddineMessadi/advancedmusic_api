@@ -73,8 +73,11 @@ class SecurityRegisterController extends BaseController implements SecurityRegis
      */
     public function postRegisterAction(Request $request): JsonResponse
     {
-        $this->getRegisterCheckEmailAction($request);
+        $emailCheckJsonResponse = $this->getRegisterCheckEmailAction($request);
 
+        if ($emailCheckJsonResponse->getStatusCode() !== HttpCode::OK) {
+            return $emailCheckJsonResponse;
+        }
         $data = $this->getDataFromRequest($request);
         $validator = $this->container->get('app_validator');
 
@@ -98,9 +101,13 @@ class SecurityRegisterController extends BaseController implements SecurityRegis
             $user->setConfirmationToken($tokenGenerator->generateToken());
         }
 
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($user);
-        $em->flush();
+        try {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+        } catch (\Exception $exception) {
+            return $this->jsonResponse(HttpCode::INTERNAL_SERVER_ERROR, $exception->getMessage());
+        }
 
         return $this->jsonResponse(HttpCode::OK);
     }
@@ -166,10 +173,13 @@ class SecurityRegisterController extends BaseController implements SecurityRegis
 
         if ($errorCount != 0) {
             return $this->jsonResponse(HttpCode::BAD_REQUEST, 'Invalid e-mail format');
-
         }
 
-        $user = $this->getDoctrine()->getRepository(User::class);
+        try {
+            $user = $this->getDoctrine()->getRepository(User::class);
+        } catch (\Exception $exception) {
+            return $this->jsonResponse(HttpCode::INTERNAL_SERVER_ERROR, $exception->getMessage());
+        }
 
         if ($user->findOneBy(array('email' => $email))) {
             return $this->jsonResponse(HttpCode::CONFLICT, 'E-mail exists already');

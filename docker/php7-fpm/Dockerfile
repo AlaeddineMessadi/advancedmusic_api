@@ -48,10 +48,11 @@ RUN pecl install xdebug \
     && echo "xdebug.remote_port=9000" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 RUN mkdir -p /var/log/xdebug/ \
-&& touch /var/log/xdebug/xdebug.log
+&& touch /var/log/xdebug/xdebug.log \
+&& chown -R www-data:www-data /var/log/xdebug/xdebug.log \
+&& chmod 664 /var/log/xdebug/xdebug.log
 
-RUN echo 'alias sf="php app/console"' >> ~/.bashrc \
-&& echo 'alias sf3="php bin/console"' >> ~/.bashrc
+RUN echo 'alias sf="php app/console"' >> ~/.bashrc
 
 RUN usermod -u 1000 www-data
 USER www-data

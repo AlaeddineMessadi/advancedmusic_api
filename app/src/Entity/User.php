@@ -58,7 +58,7 @@ class User extends BaseUser
     /** ---------------RELATIONS--------------- */
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\label", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Label", mappedBy="user")
      * @Serializer\Groups({"get_users"})
      *
      */
