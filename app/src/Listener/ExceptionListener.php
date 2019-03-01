@@ -43,7 +43,12 @@ class ExceptionListener
         ];
 
         if ('dev' == $this->kernel->getEnvironment()) {
-            $content['trace'] = $exception->getTrace();
+            $trace = $exception->getTrace();
+            if (!json_encode($trace)){
+                $content['trace'] = $exception->getTraceAsString();
+            } else {
+                $content['trace'] = $trace;
+            }
             $content['line'] = $exception->getLine();
         }
 
