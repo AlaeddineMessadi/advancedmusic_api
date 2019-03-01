@@ -2,6 +2,7 @@
 
 namespace App\Listener;
 
+use App\Utils\HttpCode;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
@@ -30,23 +31,24 @@ class ExceptionListener
     {
         $exception = $event->getException();
         $response = new Response();
+        $statusCode = HttpCode::INTERNAL_SERVER_ERROR;
         if ($exception instanceof HttpExceptionInterface) {
-            $content = [
-                'code' => $exception->getStatusCode(),
-                'message' => $exception->getMessage()
-            ];
-
-            if ('dev' == $this->kernel->getEnvironment()) {
-                $content['trace'] = $exception->getTrace();
-                $content['line'] = $exception->getLine();
-            }
-
-            $response->setContent(json_encode($content));
-            $response->setStatusCode($exception->getStatusCode());
+            $statusCode = $exception->getStatusCode();
             $response->headers->replace($exception->getHeaders());
-        } else {
-            $response->setStatusCode(500);
         }
+
+        $content = [
+            'code' => $statusCode,
+            'message' => $exception->getMessage()
+        ];
+
+        if ('dev' == $this->kernel->getEnvironment()) {
+            $content['trace'] = $exception->getTrace();
+            $content['line'] = $exception->getLine();
+        }
+
+        $response->setContent(json_encode($content));
+        $response->setStatusCode($statusCode);
 
         $event->setResponse($response);
     }
