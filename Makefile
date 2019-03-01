@@ -48,8 +48,8 @@ logs:
 db:
 	@docker exec -it --user="www-data" api_server_php sh -c "bin/console doctrine:schema:create"
 
-enter-nginx:
-	@docker-compose exec api_server_nginx sh
+nginx:
+	@docker exec -it api_server_nginx bash
 
 destroy:
 	@docker-compose down --rmi local

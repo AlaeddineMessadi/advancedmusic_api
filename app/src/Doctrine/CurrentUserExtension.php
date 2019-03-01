@@ -5,7 +5,13 @@ namespace App\Doctrine;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Extension\QueryCollectionExtensionInterface;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Extension\QueryItemExtensionInterface;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Util\QueryNameGeneratorInterface;
+use App\Entity\Address;
+use App\Entity\Contact;
+use App\Entity\Country;
+use App\Entity\InvalidToken;
 use App\Entity\Label;
+use App\Entity\Profile;
+use App\Entity\SocialNetworks;
 use App\Entity\User;
 use Doctrine\ORM\QueryBuilder;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
@@ -17,7 +23,13 @@ final class CurrentUserExtension implements QueryCollectionExtensionInterface, Q
     private $authorizationChecker;
     const ENTITIES = [
         Label::class,
-        User::class
+        User::class,
+        Profile::class,
+        SocialNetworks::class,
+        Country::class,
+        Address::class,
+        Contact::class,
+        InvalidToken::class,
     ];
 
     public function __construct(TokenStorageInterface $tokenStorage, AuthorizationCheckerInterface $checker)
