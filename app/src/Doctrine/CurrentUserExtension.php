@@ -43,7 +43,7 @@ final class CurrentUserExtension implements QueryCollectionExtensionInterface, Q
      */
     public function applyToCollection(QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, string $operationName = null)
     {
-        $this->addWhere($queryBuilder, $resourceClass);
+//        $this->addWhere($queryBuilder, $resourceClass);
     }
 
     /**
@@ -51,7 +51,7 @@ final class CurrentUserExtension implements QueryCollectionExtensionInterface, Q
      */
     public function applyToItem(QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, array $identifiers, string $operationName = null, array $context = [])
     {
-        $this->addWhere($queryBuilder, $resourceClass);
+//        $this->addWhere($queryBuilder, $resourceClass);
     }
 
     /**
@@ -71,6 +71,10 @@ final class CurrentUserExtension implements QueryCollectionExtensionInterface, Q
                     $queryBuilder->andWhere(sprintf('%s.user = :current_user', $rootAlias));
                     $queryBuilder->setParameter('current_user', $user->getId());
                     break;
+//                case Profile::class:
+//                    $queryBuilder->andWhere(sprintf('%s.user = :current_user', $rootAlias));
+//                    $queryBuilder->setParameter('current_user', $user->getId());
+//                    break;
             }
         }
     }

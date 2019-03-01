@@ -3,7 +3,7 @@ version: '2'
 services:
     db:
         container_name: api_server_db
-        image: mysql:5.6
+        image: mysql:8
         volumes:
             - ${MYSQL_DATA_DIR}:/var/lib/mysql
             - ${MYSQL_LOGS_DIR}:/var/log/mysql
@@ -12,6 +12,7 @@ services:
             MYSQL_DATABASE: ${MYSQL_DATABASE}
             MYSQL_USER: ${MYSQL_USER}
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        command: ["--default-authentication-plugin=mysql_native_password"]
         ports:
             - "3306:3306"
 
