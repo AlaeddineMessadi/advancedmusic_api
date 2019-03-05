@@ -6,6 +6,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\Traits\IdTrait;
 use App\Entity\Traits\TimestampTrait;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -26,6 +27,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  *          }
  *     }
  * )
+ *
+ * @Gedmo\Loggable()
  */
 class Profile
 {
@@ -38,6 +41,8 @@ class Profile
      * @Assert\Type(type="string")
      *
      * @Groups({"read", "write"})
+     *
+     * @Gedmo\Versioned()
      */
     private $firstName;
     /**

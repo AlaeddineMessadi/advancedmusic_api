@@ -12,14 +12,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Address
 {
-    /**
-     * Address constructor.
-     * @throws \Exception
-     */
-    public function __construct() {
-        $this->setCreatedAt(new \DateTime());
-        $this->setUpdatedAt(new \DateTime());
-    }
     
     use IdTrait;
     use TimestampTrait;
@@ -146,14 +138,6 @@ class Address
         $this->country = $country;
     }
 
-
-    /**
-     * @param mixed $createdAt
-     */
-    public function setCreatedAt($createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
 
     /**
      * @return mixed

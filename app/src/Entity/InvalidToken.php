@@ -4,10 +4,13 @@ namespace App\Entity;
 
 use App\Entity\Traits\IdTrait;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\InvalidTokenRepository")
  * @ORM\HasLifecycleCallbacks()
+ *
+ * @Gedmo\Loggable()
  */
 class InvalidToken
 {
@@ -15,11 +18,13 @@ class InvalidToken
 
     /**
      * @ORM\Column(type="integer")
+     * @Gedmo\Versioned
      */
     protected $expiration;
 
     /**
      * @ORM\Column(type="string", length=64)
+     * @Gedmo\Versioned
      */
     protected $hash;
 

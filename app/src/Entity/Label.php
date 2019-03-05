@@ -6,12 +6,15 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\Traits\IdTrait;
 use App\Entity\Traits\TimestampTrait;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\LabelRepository")
  * @ORM\HasLifecycleCallbacks()
  * @ApiResource()
+ *
+ * @Gedmo\Loggable()
  */
 class Label
 {
@@ -24,8 +27,10 @@ class Label
      * @ORM\Column(type="string")
      * @Assert\NotBlank()
      * @Assert\Type(type="string")
+     *
+     * @Gedmo\Versioned()
      */
-    private $name;
+    private $title;
 
     /**
      * @ORM\Column(type="string")
@@ -38,14 +43,6 @@ class Label
 
 
     /** ---------------RELATIONS--------------- */
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Address")
-     * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
-     *
-     * @var $address Address
-     */
-    private $address;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User",  inversedBy="labels")
@@ -68,7 +65,6 @@ class Label
     private $country;
 
     /** -------------End RELATIONS------------- */
-
 
 
     /**

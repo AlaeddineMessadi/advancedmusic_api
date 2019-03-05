@@ -7,6 +7,7 @@ use App\Entity\Traits\TimestampTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -26,6 +27,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  *          }
  *     }
  * )
+ *
+ * @Gedmo\Loggable()
  */
 class User extends BaseUser
 {
@@ -43,6 +46,8 @@ class User extends BaseUser
     /**
      * @Groups({"get_users", "user-write"})
      * @Assert\NotBlank()
+     *
+     * @Gedmo\Versioned
      */
     protected $username;
 
@@ -85,13 +90,6 @@ class User extends BaseUser
         parent::__construct();
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getCreatedAt(): \DateTime
-    {
-        return $this->createdAt;
-    }
     /**
      * @return ArrayCollection|null
      */

@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Entity\Traits\IdTrait;
 use App\Entity\Traits\TimestampTrait;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -14,6 +15,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Entity(repositoryClass="App\Repository\ContactRepository")
  * @ORM\HasLifecycleCallbacks()
+ *
+ * @Gedmo\Loggable()
  */
 class Contact
 {
@@ -25,12 +28,16 @@ class Contact
      * @ORM\Column(type="string", name="first_name")
      * @Assert\NotBlank()
      * @Assert\Type(type="string")
+     *
+     * @Gedmo\Versioned
      */
     private $firstName;
     /**
      * @ORM\Column(type="string", name="last_name")
      * @Assert\NotBlank()
      * @Assert\Type(type="string")
+     *
+     * @Gedmo\Versioned
      */
     private $lastName;
 
@@ -39,6 +46,8 @@ class Contact
      * @Assert\Email()
      * @Assert\NotBlank()
      * @Assert\Type(type="string")
+     *
+     * @Gedmo\Versioned
      */
     private $primaryEmail;
 
