@@ -36,11 +36,26 @@ class Label
      * @ORM\Column(type="string")
      * @Assert\NotBlank()
      * @Assert\Type(type="string")
+     *
+     * Biography Maximum 50 words
      */
     private $description;
 
+    /**
+     * @var bool
+     * @ORM\Column(type="boolean")
+     * @Assert\NotBlank()
+     */
+    private $distribution;
 
 
+    /**
+     * 1- LabelHistory Entity OneToOne
+     * 2- Artists Entity ManyToMany
+     * 3- Label Logos OneToMany
+     *
+     *
+     */
 
     /** ---------------RELATIONS--------------- */
 
@@ -64,6 +79,12 @@ class Label
      */
     private $country;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\SocialNetworks")
+     * @ORM\JoinColumn(name="social_networks_id", referencedColumnName="id")
+     */
+    private $socialNetworks;
+
     /** -------------End RELATIONS------------- */
 
 
@@ -86,12 +107,12 @@ class Label
     }
 
     /**
-     * @param string $name
+     * @param string $title
      * @return Label
      */
-    public function setName(string $name): self
+    public function setName(string $title): self
     {
-        $this->name = $name;
+        $this->title = $title;
         return $this;
     }
 
@@ -100,7 +121,7 @@ class Label
      */
     public function getName(): string
     {
-        return $this->name;
+        return $this->title;
     }
 
     /**
@@ -119,22 +140,6 @@ class Label
     public function getDescription(): string
     {
         return $this->description;
-    }
-
-    /**
-     * @return Address
-     */
-    public function getAddress(): Address
-    {
-        return $this->address;
-    }
-
-    /**
-     * @param Address $address
-     */
-    public function setAddress(Address $address): void
-    {
-        $this->address = $address;
     }
 
     /**
