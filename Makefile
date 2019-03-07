@@ -22,9 +22,11 @@ run:
     fi
 	@docker-compose up -d
 
+up:
+	@docker-compose up
+
 build:
 	@docker-compose build
-
 
 install:
 #	@docker-compose exec api_server_php /bin/sh -c 'chown -R php:php /home/php/.composer/cache'
