@@ -249,4 +249,9 @@ class Profile
     }
 
 
+    public  function getFullName(): String
+    {
+        return "$this->getFirstName() $this->getLastName()";
+    }
+
 }

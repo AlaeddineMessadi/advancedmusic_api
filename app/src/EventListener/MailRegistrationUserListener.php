@@ -22,12 +22,12 @@ class MailRegistrationUserListener
         $user = $event->getUser();
         $email = $event->getUser()->getEmail();
         $password = $event->getUser()->getPassword();
-        $name = $event->getUser()->getName();
+        $name = $event->getUser()->getUsername();
 
         $body = $this->renderTemplate($name, $email);
 
 		$message = (new \Swift_Message('Registration User Successfully!'))
-            ->setFrom($email)
+            ->setFrom('service@advancedmusic.com')
             ->setTo($email)
             ->setBody($body, 'text/html')
         ;

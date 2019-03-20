@@ -5,6 +5,7 @@ namespace App\Controller\Security;
 use App\Controller\BaseController;
 use App\Controller\Interfaces\Security\SecurityRegister;
 use App\Entity\User;
+use App\Event\EmailRegistrationUserEvent;
 use App\Utils\HttpCode;
 use App\Utils\Response;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -82,8 +83,9 @@ class SecurityRegisterController extends BaseController implements SecurityRegis
         $validator = $this->container->get('app_validator');
 
         $user = new User();
-        $user->setEmail( $data->email);
-        $user->setUsername( $data->email);
+        $user->setEmail($data->email);
+        $user->setUsername($data->email);
+
 
         $encoder = $this->container->get('security.password_encoder');
         $password = $encoder->encodePassword($user, $data->password);
@@ -105,6 +107,14 @@ class SecurityRegisterController extends BaseController implements SecurityRegis
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+
+
+            $event = new EmailRegistrationUserEvent($user);
+            $dispatcher = $this->get('event_dispatcher');
+            $dispatcher->dispatch(
+                EmailRegistrationUserEvent::NAME,
+                $event
+            );
         } catch (\Exception $exception) {
             return $this->jsonResponse(HttpCode::INTERNAL_SERVER_ERROR, $exception->getMessage());
         }

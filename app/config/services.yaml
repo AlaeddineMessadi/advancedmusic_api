@@ -56,6 +56,12 @@ services:
             - { name: api_platform.doctrine.orm.query_extension.collection, priority: 9 }
             - { name: api_platform.doctrine.orm.query_extension.item }
 
+#    mailer_service:
+#        class: App\Service\MailerService
+#        arguments:
+#            - '@twig',
+#            - '@mailer'
+#        public: true
 
     token_generator:
         class: App\Security\TokenGenerator
