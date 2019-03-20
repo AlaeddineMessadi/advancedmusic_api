@@ -5,7 +5,7 @@ composer.lock
 .env
 /.env.local
 /.env.*.local
-.env.*
+
 /public/bundles/
 /var/
 /vendor/
