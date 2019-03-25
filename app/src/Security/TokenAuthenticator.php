@@ -75,9 +75,11 @@ class TokenAuthenticator extends AbstractGuardAuthenticator
             ->getRepository('App:User')
             ->findOneBy(['username' => $username]);
     }
+
     /**
      * @param $credentials
      * @return int
+     * @throws \Lexik\Bundle\JWTAuthenticationBundle\Exception\JWTDecodeFailureException
      */
     public function getExpiration($credentials): int
     {
@@ -99,6 +101,7 @@ class TokenAuthenticator extends AbstractGuardAuthenticator
      */
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
+        return new Response('Wrong Credentials', Response::HTTP_UNAUTHORIZED);
     }
     /**
      * @inheritdoc
