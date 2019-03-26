@@ -3,26 +3,36 @@
 namespace App\DataFixtures;
 
 use App\Entity\Profile;
-use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class ProfileFixtures extends Fixture
+class ProfileFixtures extends BaseFixtures implements FixtureGroupInterface
 {
-    public function load(ObjectManager $manager)
+
+    protected function loadData(ObjectManager $manager)
     {
-        for ($i = 0; $i < 2; $i++) {
+        $this->createMany(Profile::class, 50, function(Profile $profile, $count) {
 
-            $entity = new Profile();
-            $entity->setFirstName('Userf' . $i);
-            $entity->setLastName('Usern' . $i);
-            $entity->setPatronymic('Userp' . $i);
-            $entity->setCitizenship('citizenship' . $i);
-            $entity->setDocument('passport');
-            $entity->setNumber('33 33 123 12' . $i);
-            $entity->setBirthday(new \DateTime());
+            $profile->setFirstName($this->faker->firstName);
+            $profile->setLastName($this->faker->lastName);
+            $profile->setPatronymic($this->faker->title);
+            $profile->setCitizenship($this->faker->country);
+            $profile->setDocument('passport');
+            $profile->setNumber($this->faker->phoneNumber);
+            $profile->setBirthday(New \DateTime($this->faker->date($format = 'Y-m-d', $max = 'now')));
+        });
 
-            $manager->persist($entity);
-            $manager->flush();
-        }
+        $manager->flush();
+    }
+
+    /**
+     * This method must return an array of groups
+     * on which the implementing class belongs to
+     *
+     * @return string[]
+     */
+    public static function getGroups(): array
+    {
+        return ['profiles'];
     }
 }

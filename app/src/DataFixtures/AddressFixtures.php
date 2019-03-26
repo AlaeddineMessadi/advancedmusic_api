@@ -4,34 +4,53 @@ namespace App\DataFixtures;
 
 use App\Entity\Address;
 use App\Entity\Country;
+use App\Utils\Tools;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class AddressFixtures extends Fixture
+class AddressFixtures extends BaseFixtures implements FixtureGroupInterface, DependentFixtureInterface
 {
-    public function load(ObjectManager $manager)
+    private $countries = [];
+
+    /**
+     * This method must return an array of groups
+     * on which the implementing class belongs to
+     *
+     * @return string[]
+     */
+    public static function getGroups(): array
     {
-        for ($i = 0; $i < 2; $i++) {
+        return ['addresses','profiles'];
+    }
 
-            $country1 = $manager->getRepository(Country::class)->findOneBy(['name' => 'Germany']);
-            $country2 = $manager->getRepository(Country::class)->findOneBy(['name' => 'Tunisia']);
-            
-            $entity = new Address();
-            $entity->setStreet('OranientStr' . $i);
-            $entity->setNumber('197');
-            $entity->setZipCode('10999' . $i);
-            $entity->setCity('Berlin');
-            $entity->setCountry($country1);
-    
-            $entity1 = new Address();
-            $entity1->setStreet('Rue morocco' . $i);
-            $entity1->setNumber('100');
-            $entity1->setZipCode('8024' . $i);
-            $entity1->setCity('Tazarka');
-            $entity1->setCountry($country2);
+    /**
+     * This method must return an array of fixtures classes
+     * on which the implementing class depends on
+     *
+     * @return array
+     */
+    public function getDependencies()
+    {
+        return [
+            CountryFixtures::class
+        ];
+    }
 
-            $manager->persist($entity);
-            $manager->flush();
-        }
+    protected function loadData(ObjectManager $manager)
+    {
+        $this->countries = $manager->getRepository(Country::class)->findAll();
+
+        $this->createMany(Address::class, 100, function(Address $address, $count) {
+            $country = $this->faker->randomElement($this->countries);
+
+            $address->setStreet($this->faker->streetName);
+            $address->setNumber($this->faker->buildingNumber);
+            $address->setZipCode((integer)$this->faker->postcode);
+            $address->setCity($this->faker->city);
+            $address->setCountry($country);
+        });
+        $manager->flush();
     }
 }

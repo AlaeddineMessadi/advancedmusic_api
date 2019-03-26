@@ -2,8 +2,10 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Address;
+use App\Entity\Profile;
 use App\Entity\User;
-use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -11,13 +13,12 @@ use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class UserFixtures extends Fixture implements ContainerAwareInterface, FixtureInterface, DependentFixtureInterface
+class UserFixtures extends BaseFixtures implements ContainerAwareInterface, FixtureInterface, DependentFixtureInterface, FixtureGroupInterface
 {
     const USERS = [
         [
             'username' => 'user',
             'email' => 'user@user.com',
-            'profile' => 1,
             'password' => 'user',
             'role' => 'ROLE_USER'
 
@@ -26,56 +27,102 @@ class UserFixtures extends Fixture implements ContainerAwareInterface, FixtureIn
             'username' => 'admin',
             'email' => 'admin@admin.com',
             'firstName' => 'Admin',
-            'profile' => 2,
             'password' => 'admin',
             'role' => 'ROLE_ADMIN'
         ]
     ];
 
     /**
-     * @var Container
+     * @var array $profiles
      */
-    protected $container;
-
-    public function load(ObjectManager $manager)
-    {
-        foreach (self::USERS as $user) {
-            $entity = new User();
-            $profile = $manager->find('App:Profile', $user['profile']);
-            $entity->setProfile($profile);
-
-            $entity->setEmail($user['email']);
-            $entity->setUsername($user['username']);
-            $entity->setEnabled(true);
-
-            $encoder = $this->container->get('security.password_encoder');
-            $password = $encoder->encodePassword($entity, $user['password']);
-            $entity->addRole($user['role']);
-            $entity->setPassword($password);
-
-            $manager->persist($entity);
-            $manager->flush();
-        }
-    }
+    private $profiles;
 
     /**
-     * Sets the container.
-     *
-     * @param ContainerInterface|null $container A ContainerInterface instance or null
+     * @var array $addresses
      */
-    public function setContainer(ContainerInterface $container = null)
-    {
-        $this->container = $container;
-    }
+    private $addresses;
+    /**
+     * @var Container
+     */
+    private $container;
 
+    /**
+     * @var mixed
+     */
+    private $encoder;
     /**
      * @return array
      */
     public function getDependencies()
     {
         return [
-            ProfileFixtures::class
+            ProfileFixtures::class,
+            AddressFixtures::class
         ];
+    }
 
+    protected function loadData(ObjectManager $manager)
+    {
+        $this->profiles = $manager->getRepository(Profile::class)->findAll();
+        $this->addresses = $manager->getRepository(Address::class)->findAll();
+
+        foreach (self::USERS as $user) {
+            $profile = $this->faker->randomElement($this->profiles);
+            $address = $this->faker->randomElement($this->addresses);
+
+            $entity = new User();
+            $entity->setProfile($profile);
+            $entity->setAddress($address);
+
+            $entity->setEmail($user['email']);
+            $entity->setUsername($user['username']);
+            $entity->setEnabled(true);
+
+            $password = $this->encoder->encodePassword($entity, $user['password']);
+            $entity->addRole($user['role']);
+            $entity->setPassword($password);
+
+            $manager->persist($entity);
+            $manager->flush();
+        }
+
+
+
+        $this->createMany(User::class, 5, function (User $user, $count) {
+            $profile = $this->faker->randomElement($this->profiles);
+            $address = $this->faker->randomElement($this->addresses);
+
+            $user->setUsername($this->faker->userName);
+            $user->setEmail($this->faker->email);
+            $user->setProfile($profile);
+            $user->setRoles(['ROLE_USER']);
+            $user->setPassword($this->encoder->encodePassword($user, 'user'));
+            $user->setAddress($address);
+
+        });
+
+        $manager->flush();
+    }
+
+    /**
+     * This method must return an array of groups
+     * on which the implementing class belongs to
+     *
+     * @return string[]
+     */
+    public static function getGroups(): array
+    {
+        return ['profiles'];
+    }
+
+    /**
+     * Sets the container.
+     * @param ContainerInterface|null $container
+     * @throws \Exception
+     */
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+        $this->encoder = $this->container->get('security.password_encoder');
     }
 }

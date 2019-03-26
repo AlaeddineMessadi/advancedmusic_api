@@ -41,5 +41,5 @@ security:
         - { path: ^/api/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/doc, role: IS_AUTHENTICATED_ANONYMOUSLY }    # for
-        - { path: ^/api/profile, roles: [ ROLE_USER ] }
-#        - { path: ^/api, roles: [ ROLE_USER ] }
+        - { path: ^/api/, roles: [ IS_AUTHENTICATED_ANONYMOUSLY ] }
+        - { path: ^/api, roles: [ ROLE_USER ] }
