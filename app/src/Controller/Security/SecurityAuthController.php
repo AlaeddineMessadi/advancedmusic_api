@@ -5,6 +5,7 @@ namespace App\Controller\Security;
 use App\Controller\BaseController;
 use App\Controller\Interfaces\Security\SecurityAuth;
 use App\Entity\InvalidToken;
+use App\Utils\HttpCode;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -73,6 +74,7 @@ class SecurityAuthController extends BaseController implements SecurityAuth
      * @SWG\Tag(
      *     name="Authentication"
      * )
+     *
      * @SWG\Response(
      *     response="200",
      *     description="Reset lifetime JWT token",
@@ -115,7 +117,7 @@ class SecurityAuthController extends BaseController implements SecurityAuth
             $em->flush();
         }
 
-        return new JsonResponse(array('success' => 'ok'));
+        return $this->jsonResponse(HttpCode::OK);
     }
 
 
