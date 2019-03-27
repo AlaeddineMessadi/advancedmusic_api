@@ -55,6 +55,7 @@ services:
         tags:
             - { name: api_platform.doctrine.orm.query_extension.collection, priority: 9 }
             - { name: api_platform.doctrine.orm.query_extension.item }
+            - { name: doctrine.event_listener, event: prePersist, method: prePersist }
 
 #    mailer_service:
 #        class: App\Service\MailerService

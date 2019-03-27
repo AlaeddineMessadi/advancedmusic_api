@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 class HelloController extends BaseController
 {
 	/**
-	 * @Rest\Route("/", name="hello")
+	 * @Rest\Route("/hello", name="hello")
      */
     public function indexAction(): Response
     {

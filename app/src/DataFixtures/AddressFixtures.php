@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Address;
 use App\Entity\Country;
+use App\Entity\User;
 use App\Utils\Tools;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
@@ -13,6 +14,11 @@ use Doctrine\Common\Persistence\ObjectManager;
 class AddressFixtures extends BaseFixtures implements FixtureGroupInterface, DependentFixtureInterface
 {
     private $countries = [];
+
+    /**
+     * @var User $user
+     */
+    private $user;
 
     /**
      * This method must return an array of groups
@@ -41,6 +47,7 @@ class AddressFixtures extends BaseFixtures implements FixtureGroupInterface, Dep
     protected function loadData(ObjectManager $manager)
     {
         $this->countries = $manager->getRepository(Country::class)->findAll();
+        $this->user = $manager->getRepository(User::class)->findByUserOrEmail('admin@admin.com','admin@admin.com');
 
         $this->createMany(Address::class, 100, function(Address $address, $count) {
             $country = $this->faker->randomElement($this->countries);
@@ -50,6 +57,7 @@ class AddressFixtures extends BaseFixtures implements FixtureGroupInterface, Dep
             $address->setZipCode((integer)$this->faker->postcode);
             $address->setCity($this->faker->city);
             $address->setCountry($country);
+            $address->setCreatedBy($this->user);
         });
         $manager->flush();
     }

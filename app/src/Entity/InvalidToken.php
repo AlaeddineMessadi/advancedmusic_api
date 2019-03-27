@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Entity\Traits\IdTrait;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
@@ -15,6 +16,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 class InvalidToken
 {
     use IdTrait;
+    use BlameableEntity;
 
     /**
      * @ORM\Column(type="integer")

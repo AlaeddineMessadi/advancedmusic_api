@@ -3,9 +3,11 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Entity\Traits\CreatedByTrait;
 use App\Entity\Traits\IdTrait;
 use App\Entity\Traits\TimestampTrait;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Blameable\Traits\BlameableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -20,11 +22,7 @@ class File
 {
     use IdTrait;
     use TimestampTrait;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="file")
-     */
-    private $owner;
+    use BlameableEntity;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Label", inversedBy="file")
@@ -60,24 +58,6 @@ class File
      */
     private $size;
 
-
-    /**
-     * @param User $owner ;
-     * @return File
-     */
-    public function setOwner(User $owner): self
-    {
-        $this->owner = $owner;
-        return $this;
-    }
-
-    /**
-     * @return User
-     */
-    public function getOwner(): User
-    {
-        return $this->owner;
-    }
 
     /**
      * @param int $code
@@ -186,4 +166,23 @@ class File
     {
         return $this->size;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    /**
+     * @param mixed $label
+     * @return File
+     */
+    public function setLabel($label)
+    {
+        $this->label = $label;
+        return $this;
+    }
+
 }

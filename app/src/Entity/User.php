@@ -7,6 +7,7 @@ use App\Entity\Traits\TimestampTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -33,7 +34,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 class User extends BaseUser
 {
     use TimestampTrait;
-    
+
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -198,4 +200,6 @@ class User extends BaseUser
         
         return $this;
     }
+
+
 }

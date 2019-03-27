@@ -3,14 +3,21 @@
 namespace App\DataFixtures;
 
 use App\Entity\LabelHistory;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
 class LabelHistoryFixtures extends BaseFixtures implements FixtureGroupInterface
 {
+    /**
+     * @var User $user
+     */
+    private $user;
 
     protected function loadData(ObjectManager $manager)
     {
+        $this->user = $manager->getRepository(User::class)->findByUserOrEmail('admin@admin.com','admin@admin.com');
+
         $this->createMany(LabelHistory::class, 100, function(LabelHistory $labelHistory, $count) {
             $labelHistory->setApprovalRequested($this->faker->boolean);
             $labelHistory->setContactReceived($this->faker->boolean);
@@ -19,6 +26,7 @@ class LabelHistoryFixtures extends BaseFixtures implements FixtureGroupInterface
             $labelHistory->setLabelApproved($this->faker->boolean);
             $labelHistory->setLogoApproved($this->faker->boolean);
             $labelHistory->setTransferSheetReceived($this->faker->boolean);
+            $labelHistory->setCreatedBy($this->user);
         });
 
         $manager->flush();

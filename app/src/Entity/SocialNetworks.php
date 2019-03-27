@@ -6,6 +6,7 @@ namespace App\Entity;
 use App\Entity\Traits\IdTrait;
 use App\Entity\Traits\TimestampTrait;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Blameable\Traits\BlameableEntity;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -18,6 +19,7 @@ class SocialNetworks
 
     use IdTrait;
     use TimestampTrait;
+    use BlameableEntity;
 
     /**
      * @ORM\Column(type="string")

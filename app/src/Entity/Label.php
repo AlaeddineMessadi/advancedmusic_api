@@ -3,17 +3,23 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Entity\Traits\CreatedByTrait;
 use App\Entity\Traits\IdTrait;
 use App\Entity\Traits\TimestampTrait;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\LabelRepository")
  * @ORM\HasLifecycleCallbacks()
- * @ApiResource()
+ * @ApiResource(
+ *      itemOperations={
+ *         "get"={"access_control"="is_granted('ROLE_USER') and object.createdBy == user"}
+ *     }
+ * )
  *
  * @Gedmo\Loggable()
  */
@@ -21,7 +27,7 @@ class Label
 {
     use IdTrait;
     use TimestampTrait;
-
+    use BlameableEntity;
 
 
     /**

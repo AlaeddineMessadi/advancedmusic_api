@@ -4,14 +4,22 @@ namespace App\DataFixtures;
 
 use App\Entity\Contact;
 use App\Entity\SocialNetworks;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
 class ContactFixtures extends BaseFixtures implements FixtureGroupInterface
 {
 
+    /**
+     * @var User $user
+     */
+    private $user;
+
     protected function loadData(ObjectManager $manager)
     {
+        $this->user = $manager->getRepository(User::class)->findByUserOrEmail('admin@admin.com','admin@admin.com');
+
         $this->createMany(Contact::class, 50, function(Contact $contact, $count) {
             $contact->setFirstName($this->faker->firstName);
             $contact->setLastName($this->faker->lastName);
@@ -20,6 +28,7 @@ class ContactFixtures extends BaseFixtures implements FixtureGroupInterface
             $contact->setContactEmail($this->faker->email);
             $contact->setFeedbackEmail($this->faker->email);
             $contact->setWebsite($this->faker->url);
+            $contact->setCreatedBy($this->user);
         });
 
         $manager->flush();
