@@ -15,7 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Class LabelHistory
  * @package App\Entity
  *
- * @ORM\Entity(repositoryClass="App\Repository\LabelHistoryRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\LogosRepository")
  * @ORM\HasLifecycleCallbacks()
  *
  * @Gedmo\Loggable()

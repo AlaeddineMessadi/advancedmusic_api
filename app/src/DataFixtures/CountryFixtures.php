@@ -34,6 +34,6 @@ class CountryFixtures extends Fixture implements FixtureGroupInterface
      */
     public static function getGroups(): array
     {
-        return ['addresses', 'country', 'profiles'];
+        return ['addresses', 'country', 'profiles', 'labels'];
     }
 }

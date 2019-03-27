@@ -67,8 +67,11 @@ class UserFixtures extends BaseFixtures implements ContainerAwareInterface, Fixt
         $this->addresses = $manager->getRepository(Address::class)->findAll();
 
         foreach (self::USERS as $user) {
-            $profile = $this->faker->randomElement($this->profiles);
-            $address = $this->faker->randomElement($this->addresses);
+            shuffle($this->profiles);
+            $profile = array_pop($this->profiles);
+
+            shuffle($this->addresses);
+            $address = array_pop($this->addresses);
 
             $entity = new User();
             $entity->setProfile($profile);
@@ -89,8 +92,11 @@ class UserFixtures extends BaseFixtures implements ContainerAwareInterface, Fixt
 
 
         $this->createMany(User::class, 5, function (User $user, $count) {
-            $profile = $this->faker->randomElement($this->profiles);
-            $address = $this->faker->randomElement($this->addresses);
+            shuffle($this->profiles);
+            $profile = array_pop($this->profiles);
+
+            shuffle($this->addresses);
+            $address = array_pop($this->addresses);
 
             $user->setUsername($this->faker->userName);
             $user->setEmail($this->faker->email);
@@ -112,7 +118,7 @@ class UserFixtures extends BaseFixtures implements ContainerAwareInterface, Fixt
      */
     public static function getGroups(): array
     {
-        return ['profiles'];
+        return ['profiles', 'labels'];
     }
 
     /**

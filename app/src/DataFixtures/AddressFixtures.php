@@ -22,7 +22,7 @@ class AddressFixtures extends BaseFixtures implements FixtureGroupInterface, Dep
      */
     public static function getGroups(): array
     {
-        return ['addresses','profiles'];
+        return ['addresses','profiles','labels'];
     }
 
     /**

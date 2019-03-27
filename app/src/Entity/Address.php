@@ -19,7 +19,7 @@ class Address
     /**
      * @var $street string street
      *
-     * @ORM\Columbodyn(name="street", type="string", length=225)
+     * @ORM\Column(name="street", type="string", length=225)
      * @Assert\NotNull()
      *
      */

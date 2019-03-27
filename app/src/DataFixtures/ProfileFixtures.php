@@ -33,6 +33,6 @@ class ProfileFixtures extends BaseFixtures implements FixtureGroupInterface
      */
     public static function getGroups(): array
     {
-        return ['profiles'];
+        return ['profiles', 'labels'];
     }
 }

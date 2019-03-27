@@ -185,5 +185,84 @@ class Label
         $this->country = $country;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param mixed $title
+     */
+    public function setTitle($title): void
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isDistribution(): bool
+    {
+        return $this->distribution;
+    }
+
+    /**
+     * @param bool $distribution
+     */
+    public function setDistribution(bool $distribution): void
+    {
+        $this->distribution = $distribution;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLabelHistory()
+    {
+        return $this->labelHistory;
+    }
+
+    /**
+     * @param mixed $labelHistory
+     */
+    public function setLabelHistory($labelHistory): void
+    {
+        $this->labelHistory = $labelHistory;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSocialNetworks()
+    {
+        return $this->socialNetworks;
+    }
+
+    /**
+     * @param mixed $socialNetworks
+     */
+    public function setSocialNetworks($socialNetworks): void
+    {
+        $this->socialNetworks = $socialNetworks;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLogos()
+    {
+        return $this->logos;
+    }
+
+    /**
+     * @param mixed $logos
+     */
+    public function setLogos($logos): void
+    {
+        $this->logos = $logos;
+    }
 
 }
