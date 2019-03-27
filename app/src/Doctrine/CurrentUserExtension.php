@@ -96,19 +96,26 @@ final class CurrentUserExtension implements QueryCollectionExtensionInterface, Q
     public function prePersist(LifecycleEventArgs $args)
     {
         $tokenStorage = $this->tokenStorage->getToken();
-        $em = $args->getObjectManager();
-
         if ($tokenStorage) {
             $user = $tokenStorage->getUser();
             /**
              * @var Entity
              */
             $entity = $args->getObject();
-
             $entity->setCreatedBy($user);
+        }
+    }
 
-            $em->persist($entity);
-            $em->flush();
+    public function preUpdate(LifecycleEventArgs $args)
+    {
+        $tokenStorage = $this->tokenStorage->getToken();
+        if ($tokenStorage) {
+            $user = $tokenStorage->getUser();
+            /**
+             * @var Entity
+             */
+            $entity = $args->getObject();
+            $entity->setUpdatedBy($user);
         }
     }
 
@@ -121,6 +128,7 @@ final class CurrentUserExtension implements QueryCollectionExtensionInterface, Q
     {
         return array(
             Events::prePersist,
+            Events::preUpdate
         );
     }
 }

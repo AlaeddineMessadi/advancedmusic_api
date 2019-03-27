@@ -33,7 +33,7 @@ trait OwnerTrait
     /**
      * @return User
      */
-    public function getCreatedBy(): User
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
@@ -41,7 +41,7 @@ trait OwnerTrait
     /**
      * @param User $createdBy
      */
-    public function setCreatedBy(User $createdBy): void
+    public function setCreatedBy($createdBy): void
     {
         $this->createdBy = $createdBy;
     }
@@ -49,7 +49,7 @@ trait OwnerTrait
     /**
      * @return User
      */
-    public function getUpdatedBy(): User
+    public function getUpdatedBy()
     {
         return $this->updatedBy;
     }

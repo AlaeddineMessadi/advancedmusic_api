@@ -83,7 +83,7 @@ class LabelsFixtures extends BaseFixtures implements FixtureGroupInterface, Depe
             $label->setLabelHistory($labelHistory);
             $label->setSocialNetworks($socialNetwork);
             $label->setUser($this->user1);
-//            $label->setCreatedBy($this->user1);
+            $label->setCreatedBy($this->user1);
 
             $file = new File();
             $file->setName("example");
