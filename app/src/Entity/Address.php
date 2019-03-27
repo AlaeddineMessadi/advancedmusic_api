@@ -4,9 +4,9 @@ namespace App\Entity;
 
 use App\Entity\Traits\CreatedByTrait;
 use App\Entity\Traits\IdTrait;
+use App\Entity\Traits\OwnerTrait;
 use App\Entity\Traits\TimestampTrait;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Blameable\Traits\BlameableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -17,7 +17,7 @@ class Address
     
     use IdTrait;
     use TimestampTrait;
-    use BlameableEntity;
+    use OwnerTrait;
 
     /**
      * @var $street string street

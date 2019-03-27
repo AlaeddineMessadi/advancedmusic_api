@@ -82,7 +82,7 @@ class UserFixtures extends BaseFixtures implements ContainerAwareInterface, Fixt
             $entity->setEnabled(true);
 
             $password = $this->encoder->encodePassword($entity, $user['password']);
-            $entity->addRole($user['role']);
+            $entity->setRoles([$user['role']]);
             $entity->setPassword($password);
 
             $manager->persist($entity);

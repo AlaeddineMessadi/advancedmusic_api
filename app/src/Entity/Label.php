@@ -5,10 +5,10 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\Traits\CreatedByTrait;
 use App\Entity\Traits\IdTrait;
+use App\Entity\Traits\OwnerTrait;
 use App\Entity\Traits\TimestampTrait;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -27,7 +27,7 @@ class Label
 {
     use IdTrait;
     use TimestampTrait;
-    use BlameableEntity;
+    use OwnerTrait;
 
 
     /**

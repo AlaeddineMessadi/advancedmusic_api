@@ -11,6 +11,7 @@ use App\Entity\Country;
 use App\Entity\File;
 use App\Entity\InvalidToken;
 use App\Entity\Label;
+use App\Entity\LabelHistory;
 use App\Entity\Profile;
 use App\Entity\SocialNetworks;
 use App\Entity\User;
@@ -35,6 +36,8 @@ final class CurrentUserExtension implements QueryCollectionExtensionInterface, Q
         Contact::class,
         InvalidToken::class,
         File::class,
+        Contact::class,
+        LabelHistory::class
 
     ];
 
@@ -73,7 +76,7 @@ final class CurrentUserExtension implements QueryCollectionExtensionInterface, Q
         ) {
             $rootAlias = $queryBuilder->getRootAliases()[0];
             if ($resourceClass != User::class) {
-                $queryBuilder->andWhere(sprintf('%s.createBy = :current_user', $rootAlias));
+                $queryBuilder->andWhere(sprintf('%s.created_by = :current_user', $rootAlias));
                 $queryBuilder->setParameter('current_user', $user->getId());
             }
 

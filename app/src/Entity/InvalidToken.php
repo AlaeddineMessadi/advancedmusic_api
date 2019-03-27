@@ -3,8 +3,8 @@
 namespace App\Entity;
 
 use App\Entity\Traits\IdTrait;
+use App\Entity\Traits\OwnerTrait;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
@@ -16,7 +16,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 class InvalidToken
 {
     use IdTrait;
-    use BlameableEntity;
+    use OwnerTrait;
 
     /**
      * @ORM\Column(type="integer")

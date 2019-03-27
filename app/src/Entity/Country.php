@@ -4,9 +4,8 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\Traits\IdTrait;
+use App\Entity\Traits\OwnerTrait;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Blameable\Traits\BlameableEntity;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CountryRepository")
@@ -18,7 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Country
 {
     use IdTrait;
-    use BlameableEntity;
+    use OwnerTrait;
 
 
     /**
