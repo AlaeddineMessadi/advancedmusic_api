@@ -50,7 +50,7 @@ class Label
 
 
     /**
-     * 1- LabelHistory Entity OneToOne
+     * 1- LabelHistory Entity OneToOne  // DONE
      * 2- Artists Entity ManyToMany
      * 3- Label Logos OneToMany
      *
@@ -64,7 +64,6 @@ class Label
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
-
 
     /**
      * Many Users have Many Groups.
@@ -80,10 +79,22 @@ class Label
     private $country;
 
     /**
+     * @ORM\OneToOne(targetEntity="App\Entity\LabelHistory")
+     * @ORM\JoinColumn(name="label_history_id", referencedColumnName="id")
+     */
+    private $labelHistory;
+
+    /**
      * @ORM\OneToOne(targetEntity="App\Entity\SocialNetworks")
      * @ORM\JoinColumn(name="social_networks_id", referencedColumnName="id")
      */
     private $socialNetworks;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Logos")
+     * @ORM\JoinColumn(name="logos", referencedColumnName="id")
+     */
+    private $logos;
 
     /** -------------End RELATIONS------------- */
 

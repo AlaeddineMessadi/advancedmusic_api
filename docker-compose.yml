@@ -82,16 +82,16 @@ services:
             - nginx
         container_name: api_server_elk
 
-    mailer:
-        image: namshi/smtp
-        hostname: mailer
-        ports:
-            - "587:587"
-            - "159:159"
-        environment:
-            SMARTHOST_ADDRESS: ${SMARTHOST_ADDRESS}
-            SMARTHOST_PORT: ${SMARTHOST_PORT}
-            SMARTHOST_USER: ${SMARTHOST_USER}
-            SMARTHOST_PASSWORD: ${SMARTHOST_PASSWORD}
-            SMARTHOST_ALIASES: ${SMARTHOST_ALIASES}
-        container_name: api_server_mailer
+#    mailer:
+#        image: namshi/smtp
+#        hostname: mailer
+#        ports:
+#            - "587:587"
+#            - "159:159"
+#        environment:
+#            SMARTHOST_ADDRESS: ${SMARTHOST_ADDRESS}
+#            SMARTHOST_PORT: ${SMARTHOST_PORT}
+#            SMARTHOST_USER: ${SMARTHOST_USER}
+#            SMARTHOST_PASSWORD: ${SMARTHOST_PASSWORD}
+#            SMARTHOST_ALIASES: ${SMARTHOST_ALIASES}
+#        container_name: api_server_mailer

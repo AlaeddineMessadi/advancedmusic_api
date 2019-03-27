@@ -26,7 +26,7 @@ trait TimestampTrait
      * @var \DateTime $contentChanged
      *
      * @ORM\Column(name="content_changed", type="datetime", nullable=true)
-     * @Gedmo\Timestampable(on="change", field={"title", "body"})
+     * @Gedmo\Timestampable(on="change", field={"update", "created"})
      */
     private $contentChanged;
 

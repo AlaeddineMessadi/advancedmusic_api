@@ -6,6 +6,7 @@ namespace App\Entity;
 use App\Entity\Traits\IdTrait;
 use App\Entity\Traits\TimestampTrait;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -88,6 +89,16 @@ class SocialNetworks
      */
     private $spotify;
 
+
+    /*********** Relations ***********/
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Label", mappedBy="socialNetworks")
+     * @Groups({"read"})
+     */
+    private $label;
+
+    /*** ************************* **/
     /**
      * @return mixed
      */
