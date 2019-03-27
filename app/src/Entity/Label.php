@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\Traits\IdTrait;
 use App\Entity\Traits\TimestampTrait;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -91,10 +92,10 @@ class Label
     private $socialNetworks;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Logos")
-     * @ORM\JoinColumn(name="logos", referencedColumnName="id")
+     * @var Collection
+     * @ORM\OneToMany(targetEntity="App\Entity\File", mappedBy="label", cascade={"all"})
      */
-    private $logos;
+    private $files;
 
     /** -------------End RELATIONS------------- */
 
@@ -250,19 +251,20 @@ class Label
     }
 
     /**
-     * @return mixed
+     * @return Collection
      */
-    public function getLogos()
+    public function getFiles(): Collection
     {
-        return $this->logos;
+        return $this->files;
     }
 
     /**
-     * @param mixed $logos
+     * @param Collection $files
+     * @return Label
      */
-    public function setLogos($logos): void
+    public function setFiles(Collection $files): Label
     {
-        $this->logos = $logos;
+        $this->files = $files;
+        return $this;
     }
-
 }

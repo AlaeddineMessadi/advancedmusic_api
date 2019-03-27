@@ -2,14 +2,14 @@
 
 namespace App\Repository;
 
-use App\Entity\Files;
+use App\Entity\File;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
-class FilesRepository extends ServiceEntityRepository
+class FileRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Files::class);
+        parent::__construct($registry, File::class);
     }
 }

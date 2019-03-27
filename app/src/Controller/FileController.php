@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Files;
+use App\Entity\File;
 use App\Utils\UploadLimits;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
@@ -168,7 +168,7 @@ class FileController extends BaseController
 
         $now = new \DateTime();
 
-            $file = new Files();
+            $file = new File();
             $file->setHash($hash)
                 ->setOwner($user) // у файла есть владелец со своим подкаталогом
                 ->setCreatedAt($now);

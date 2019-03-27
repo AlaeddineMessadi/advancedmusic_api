@@ -9,22 +9,27 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\FilesRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\FileRepository")
  * @ORM\HasLifecycleCallbacks()
  * @ApiResource()
  *
  * implement uploadable file doctrine extension
  * https://github.com/Atlantic18/DoctrineExtensions/blob/v2.4.x/doc/uploadable.md
  */
-class Files
+class File
 {
     use IdTrait;
     use TimestampTrait;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="files")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="file")
      */
     private $owner;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Label", inversedBy="file")
+     */
+    private $label;
 
     /**
      * @ORM\Column(type="string")
@@ -58,7 +63,7 @@ class Files
 
     /**
      * @param User $owner ;
-     * @return Files
+     * @return File
      */
     public function setOwner(User $owner): self
     {
@@ -76,7 +81,7 @@ class Files
 
     /**
      * @param int $code
-     * @return Files
+     * @return File
      */
     public function setCode(int $code = null): self
     {
@@ -94,7 +99,7 @@ class Files
 
     /**
      * @param string $name
-     * @return Files
+     * @return File
      */
     public function setName(string $name): self
     {
@@ -112,7 +117,7 @@ class Files
 
     /**
      * @param string $hash
-     * @return Files
+     * @return File
      */
     public function setHash(string $hash): self
     {
@@ -130,7 +135,7 @@ class Files
 
     /**
      * @param string $description
-     * @return Files
+     * @return File
      */
     public function setDescription(string $description): self
     {
@@ -148,7 +153,7 @@ class Files
 
     /**
      * @param string $type
-     * @return Files
+     * @return File
      */
     public function setType(string $type): self
     {
@@ -166,7 +171,7 @@ class Files
 
     /**
      * @param int $size
-     * @return Files
+     * @return File
      */
     public function setSize(int $size): self
     {
