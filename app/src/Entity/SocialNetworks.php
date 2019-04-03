@@ -96,7 +96,6 @@ class SocialNetworks
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Label", mappedBy="socialNetworks")
-     * @Groups({"read"})
      */
     private $label;
 

@@ -19,11 +19,11 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     attributes={
  *          "access_control"="is_granted('ROLE_ADMIN')",
  *          "normalization_context"={
- *                 "groups"={"get_users", "user-read"},
+ *                 "groups"={"read"},
  *                 "datetime_format"="d.m.Y H:i:s"
  *          },
  *          "denormalization_context"={
- *                  "groups"={"user-write"},
+ *                  "groups"={"write"},
  *                  "datetime_format"="d.m.Y H:i:s"
  *          }
  *     }
@@ -41,12 +41,10 @@ class User extends BaseUser
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      *
-     * @Groups({"get_users", "user-write"})
      */
     protected $id;
     
     /**
-     * @Groups({"get_users", "user-write"})
      * @Assert\NotBlank()
      *
      * @Gedmo\Versioned
@@ -54,7 +52,6 @@ class User extends BaseUser
     protected $username;
 
     /**
-     * @Groups({"get_users", "user-write"})
      * @Assert\Email()
      * @Assert\NotBlank()
      */
@@ -65,14 +62,12 @@ class User extends BaseUser
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Label", mappedBy="user")
-     * @Groups({"get_users", "user-write"})
      */
     private $labels;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Address")
      * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
-     * @Groups({"get_users", "user-write"})
      *
      * @var $address Address
      */
@@ -81,7 +76,6 @@ class User extends BaseUser
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Profile", inversedBy="user", cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="profile_id", referencedColumnName="id")
-     * @Groups({"get_users", "user-write"})
      */
     private $profile;
 
@@ -181,7 +175,6 @@ class User extends BaseUser
     }
     
     /**
-     * @Groups("get_users")
      * @return array
      */
     public function getRoles(): array

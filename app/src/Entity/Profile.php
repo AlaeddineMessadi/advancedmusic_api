@@ -3,13 +3,11 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Entity\Traits\CreatedByTrait;
 use App\Entity\Traits\IdTrait;
 use App\Entity\Traits\OwnerTrait;
 use App\Entity\Traits\TimestampTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -44,8 +42,6 @@ class Profile
      * @Assert\NotBlank()
      * @Assert\Type(type="string")
      *
-     * @Groups({"read", "write"})
-     *
      * @Gedmo\Versioned()
      */
     private $firstName;
@@ -54,14 +50,12 @@ class Profile
      * @Assert\NotBlank()
      * @Assert\Type(type="string")
      *
-     * @Groups({"read", "write"})
      */
     private $lastName;
     /**
      * @ORM\Column(type="string", nullable=true)
      * @Assert\Type(type="string")
      *
-     * @Groups({"read", "write"})
      */
     private $patronymic;
     /**
@@ -69,7 +63,6 @@ class Profile
      * @Assert\NotBlank()
      * @Assert\Type(type="string")
      *
-     * @Groups({"read", "write"})
      */
     private $citizenship;
     /**
@@ -77,7 +70,6 @@ class Profile
      * @Assert\NotBlank()
      * @Assert\Type(type="string")
      *
-     * @Groups({"read", "write"})
      */
     private $document;
     /**
@@ -91,7 +83,6 @@ class Profile
      * @Assert\NotBlank()
      * @Assert\Date()
      *
-     * @Groups({"read", "write"})
      */
     private $birthday;
 
@@ -99,7 +90,6 @@ class Profile
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\User", mappedBy="profile")
-     * @Groups({"read"})
      */
     private $user;
 

@@ -28,16 +28,9 @@ final class CurrentUserExtension implements QueryCollectionExtensionInterface, Q
     private $tokenStorage;
     private $authorizationChecker;
     const ENTITIES = [
-        Label::class,
-        Profile::class,
-        SocialNetworks::class,
+        User::class,
         Country::class,
-        Address::class,
-        Contact::class,
-        InvalidToken::class,
-        File::class,
-        Contact::class,
-        LabelHistory::class
+        InvalidToken::class
 
     ];
 
@@ -71,12 +64,14 @@ final class CurrentUserExtension implements QueryCollectionExtensionInterface, Q
     private function addWhere(QueryBuilder $queryBuilder, string $resourceClass)
     {
         $user = $this->tokenStorage->getToken()->getUser();
-        if ($user instanceof User && in_array($resourceClass, self::ENTITIES)
-            && !$this->authorizationChecker->isGranted('ROLE_ADMIN')
+
+        if  (!in_array($resourceClass, self::ENTITIES)
+            // todo uncomment the ROLE_ADMIN later
+            // && !$this->authorizationChecker->isGranted('ROLE_ADMIN')
         ) {
             $rootAlias = $queryBuilder->getRootAliases()[0];
             if ($resourceClass != User::class) {
-                $queryBuilder->andWhere(sprintf('%s.created_by = :current_user', $rootAlias));
+                $queryBuilder->andWhere(sprintf('%s.createdBy = :current_user', $rootAlias));
                 $queryBuilder->setParameter('current_user', $user->getId());
             }
 
@@ -108,14 +103,15 @@ final class CurrentUserExtension implements QueryCollectionExtensionInterface, Q
 
     public function preUpdate(LifecycleEventArgs $args)
     {
-        $tokenStorage = $this->tokenStorage->getToken();
-        if ($tokenStorage) {
-            $user = $tokenStorage->getUser();
-            /**
-             * @var Entity
-             */
-            $entity = $args->getObject();
-            $entity->setUpdatedBy($user);
+        $entity = $args->getObject();
+        if (!in_array(get_class($entity), self::ENTITIES)
+            && !$this->authorizationChecker->isGranted('ROLE_ADMIN')
+        ) {
+            $tokenStorage = $this->tokenStorage->getToken();
+            if ($tokenStorage) {
+                $user = $tokenStorage->getUser();
+                $entity->setUpdatedBy($user);
+            }
         }
     }
 

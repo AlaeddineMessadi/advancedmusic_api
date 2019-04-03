@@ -16,7 +16,11 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @package App\Entity
  *
  * @ORM\Entity(repositoryClass="App\Repository\ContactRepository")
- * @ApiResource()
+ * @ApiResource(
+ *      attributes={
+ *         "denormalization_context"={"api_allow_update":true}
+ *     }
+ * )
  *
  * @Gedmo\Loggable()
  */
@@ -45,7 +49,6 @@ class Contact
     private $lastName;
 
     /**
-     * @Groups({"get_labels"})
      * @Assert\Email()
      * @Assert\NotBlank()
      * @Assert\Type(type="string")
@@ -55,14 +58,12 @@ class Contact
     private $primaryEmail;
 
     /**
-     * @Groups({"get_labels"})
      * @Assert\Email()
      * @Assert\Type(type="string")
      */
     private $contactEmail;
 
     /**
-     * @Groups({"get_labels"})
      * @Assert\Email()
      * @Assert\Type(type="string")
      */
@@ -80,7 +81,6 @@ class Contact
 
     /**
      * @ORM\Column(type="string")
-     * @Assert\Url()
      * @Assert\NotBlank()
      * @Assert\Type(type="string")
      */
