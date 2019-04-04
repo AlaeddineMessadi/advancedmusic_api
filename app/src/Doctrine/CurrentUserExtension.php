@@ -65,7 +65,7 @@ final class CurrentUserExtension implements QueryCollectionExtensionInterface, Q
     {
         $user = $this->tokenStorage->getToken()->getUser();
 
-        if  (!in_array($resourceClass, self::ENTITIES)
+        if (!in_array($resourceClass, self::ENTITIES)
             // todo uncomment the ROLE_ADMIN later
             // && !$this->authorizationChecker->isGranted('ROLE_ADMIN')
         ) {
@@ -90,14 +90,18 @@ final class CurrentUserExtension implements QueryCollectionExtensionInterface, Q
 
     public function prePersist(LifecycleEventArgs $args)
     {
+        /**
+         * @var Entity
+         */
+        $entity = $args->getObject();
         $tokenStorage = $this->tokenStorage->getToken();
-        if ($tokenStorage) {
-            $user = $tokenStorage->getUser();
-            /**
-             * @var Entity
-             */
-            $entity = $args->getObject();
-            $entity->setCreatedBy($user);
+        if (!in_array(get_class($entity), self::ENTITIES)
+            && !$this->authorizationChecker->isGranted('ROLE_ADMIN')
+        ) {
+            if ($tokenStorage) {
+                $user = $tokenStorage->getUser();
+                $entity->setCreatedBy($user);
+            }
         }
     }
 
